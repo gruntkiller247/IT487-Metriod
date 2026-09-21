@@ -3,25 +3,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class PlayerInventory : MonoBehaviour
+public class EntityHealth : MonoBehaviour
 {
     private IEnumerator invulTimes;
 
-    public float invulTime = 5f;
-
-    public bool hasMorphBall = false;
-
     public int hp = 3;
 
-    public int ammo = 50;
+     public float invulTime = 1f;
 
     public bool canDamange = true;
 
     public bool testDamage = false;
-
-    public bool invulCheat = false;
-
-    public bool ammoCheat = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,10 +23,6 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(invulCheat)
-            canDamange = false;
-        //Debug.Log("canDamange: " + canDamange);
         if(testDamage)
         {
             if(canDamange)
@@ -44,25 +32,13 @@ public class PlayerInventory : MonoBehaviour
             }
             testDamage = false;  
         }
-            
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        /*switch(other.tag)
-        {
-            case "MorphBall":
-                Destroy(other.GameObject());
-                hasMorphBall = !hasMorphBall;
-                return;
-        }
-        */
-        if(other.tag == "MorphBall")
-        {
-            Destroy(other.GameObject());
-            hasMorphBall = !hasMorphBall;
-        }
-        else if(other.tag == "Enemy")
+        Debug.Log("Thing inside me!: " + other.tag);
+        
+        if(other.tag == "Player" || other.tag == "PlayerWeapon")
         {
             //Damage the self here. Let enemy deal with damage
             if(canDamange)
@@ -71,15 +47,10 @@ public class PlayerInventory : MonoBehaviour
             }
             else
             {
-                Debug.Log("Currently Immune to Damage!");
+                //Debug.Log("Currently Immune to Damage!");
             }
 
         }
-    }
-
-    public bool HasMorphBall()
-    {
-        return hasMorphBall;
     }
 
     private void takeDamage()
@@ -87,8 +58,9 @@ public class PlayerInventory : MonoBehaviour
         hp--;
         if(hp <= 0)
         {
-            Debug.Log("Player has died!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //Debug.Log("Enemy has died!");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameObject.SetActive(false);
             
         }
         else
@@ -107,25 +79,4 @@ public class PlayerInventory : MonoBehaviour
         canDamange = true;
         //Debug.Log("I frames ended!");
     }
-
-    public bool getAmmoCheat()
-    {
-        return ammoCheat;
-    }
-
-    public int getAmmoAmount()
-    {
-        return ammo;
-    }
-
-    public void fire()
-    {
-        ammo--;
-    }
-
-    public void fire(int amount)
-    {
-        ammo-=amount;
-    }
-     
 }

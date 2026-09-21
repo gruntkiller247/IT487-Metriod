@@ -35,7 +35,16 @@ public class PlayerDirection : MonoBehaviour
            
         }
 
-        bool holdingUp = Input.GetKey(KeyCode.UpArrow);
+        bool holdingUp = false;
+
+        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            holdingUp = true;
+        }
+        else
+        {
+            holdingUp = false;
+        }
 
         if(lookingUp && !holdingUp)
         {

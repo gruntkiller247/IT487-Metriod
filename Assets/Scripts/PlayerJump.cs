@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
     {
         Vector3 newVelocity = rigid.linearVelocity;
 
-        if(Input.GetKeyDown(KeyCode.A) && IsGrounded())
+        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             newVelocity.y = jumpPower;
         }

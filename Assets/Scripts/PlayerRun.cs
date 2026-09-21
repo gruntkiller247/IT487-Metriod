@@ -24,7 +24,7 @@ public class PlayerRun : MonoBehaviour
         newVelocity.x=Input.GetAxis("Horizontal") * moveSpeed;
         
     
-        if(Input.GetKeyDown(KeyCode.Z) && isGrounded())
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             newVelocity.y = jumpPower;
         }
@@ -32,7 +32,7 @@ public class PlayerRun : MonoBehaviour
         rigid.linearVelocity = newVelocity;
     }
 
-    private bool isGrounded()
+    public bool isGrounded()
     {
         Collider col = transform.GetComponentInChildren<Collider>();
         Ray ray = new Ray(col.bounds.center,Vector3.down);
