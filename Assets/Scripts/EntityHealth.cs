@@ -27,7 +27,7 @@ public class EntityHealth : MonoBehaviour
         {
             if(canDamange)
             {
-                takeDamage();
+                takeDamage(null);
                 
             }
             testDamage = false;  
@@ -43,7 +43,7 @@ public class EntityHealth : MonoBehaviour
             //Damage the self here. Let enemy deal with damage
             if(canDamange)
             {
-                takeDamage();
+                takeDamage(other);
             }
             else
             {
@@ -53,9 +53,34 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
-    private void takeDamage()
+    private void takeDamage(Collider other)
     {
-        hp--;
+
+        if(!other)
+        {
+            Debug.Log("Debug Damage!");
+            hp--;
+        }
+        else
+        {
+            EntityDamage thing = other.gameObject.GetComponent<EntityDamage>();
+
+            if(!thing)
+            {
+                thing = transform.GetComponentInParent<EntityDamage>();
+
+                if(!thing)
+                {
+                    Debug.Log("Player/Friendly to player thing does not have the damage script!");
+                }
+                else
+                    hp-=thing.getDamage();
+                    
+            }
+            else
+                hp-=thing.getDamage();
+        }
+
         if(hp <= 0)
         {
             //Debug.Log("Enemy has died!");

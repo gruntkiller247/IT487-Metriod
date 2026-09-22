@@ -5,7 +5,13 @@ public class PlayerJump : MonoBehaviour
     Rigidbody rigid;
     Collider col;
 
-    public float jumpPower = 12f;
+    public float jumpMax = 12f;
+
+    public float jumpGain = 0.000000025f;
+    private float jumpBonus = 0f;
+
+    private bool isCharging = false;
+   
 
     void Awake()
     {
@@ -23,13 +29,27 @@ public class PlayerJump : MonoBehaviour
     {
         Vector3 newVelocity = rigid.linearVelocity;
 
-        if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        /*if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            newVelocity.y = jumpPower;
+            jumpBonus = 0f;
+        }*/
+
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
+        {
+            if (jumpBonus < jumpMax)
+                jumpBonus += jumpGain;
+            Debug.Log("Holding the key! JumpBonus: " + jumpBonus);
         }
 
-        rigid.linearVelocity = newVelocity;
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            newVelocity.y = jumpBonus;
+            rigid.linearVelocity = newVelocity;
+
+            jumpBonus = 0f;
+        }
     }
+
 
     bool IsGrounded()
     {

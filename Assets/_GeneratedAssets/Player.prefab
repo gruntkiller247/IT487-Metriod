@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 2964988505357570281}
   - component: {fileID: 4654261316591092314}
   - component: {fileID: 8931988499480437268}
+  - component: {fileID: -5307734971886488861}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -443,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  jumpPower: 12
+  jumpPower: 10
 --- !u!114 &2964988505357570281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,5 +491,22 @@ MonoBehaviour:
   invulTime: 5
   hasMorphBall: 0
   hp: 3
+  ammo: 50
   canDamange: 1
   testDamage: 0
+  invulCheat: 0
+  ammoCheat: 0
+  gunDamage: 1
+--- !u!114 &-5307734971886488861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575969477524420703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844787cba2601af42aa6266094b66899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityDamage
+  damage: 1

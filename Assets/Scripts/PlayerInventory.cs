@@ -22,6 +22,9 @@ public class PlayerInventory : MonoBehaviour
     public bool invulCheat = false;
 
     public bool ammoCheat = false;
+
+    public int gunDamage = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,7 +42,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if(canDamange)
             {
-                takeDamage();
+                takeDamage(null);
                 
             }
             testDamage = false;  
@@ -67,7 +70,7 @@ public class PlayerInventory : MonoBehaviour
             //Damage the self here. Let enemy deal with damage
             if(canDamange)
             {
-                takeDamage();
+                takeDamage(other);
             }
             else
             {
@@ -82,9 +85,25 @@ public class PlayerInventory : MonoBehaviour
         return hasMorphBall;
     }
 
-    private void takeDamage()
+    private void takeDamage(Collider other)
     {
-        hp--;
+        if(!other)
+        {
+            Debug.Log("Debug Damage!");
+            hp--;
+        }
+        else
+        {
+            EntityDamage thing = other.gameObject.GetComponent<EntityDamage>();
+
+            if(!thing)
+            {
+                Debug.Log("Enemy does not have the damage script!");
+            }
+            else
+                hp-=thing.getDamage();
+        }
+
         if(hp <= 0)
         {
             Debug.Log("Player has died!");
@@ -108,6 +127,26 @@ public class PlayerInventory : MonoBehaviour
         //Debug.Log("I frames ended!");
     }
 
+    public int getDamage(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            //return player contact damage.
+            Debug.Log("Player Contact damage!");
+            return 1;
+        }
+        else if(other.tag == "PlayerWeapon")
+        {
+            Debug.Log("Player Gun damage!");
+            return gunDamage;
+        }
+        else
+        {
+            //Unknown damage source originating from the player
+            return 1;
+        }
+    }
+
     public bool getAmmoCheat()
     {
         return ammoCheat;
@@ -126,6 +165,11 @@ public class PlayerInventory : MonoBehaviour
     public void fire(int amount)
     {
         ammo-=amount;
+    }
+
+    public int getGunDamage()
+    {
+        return gunDamage;
     }
      
 }

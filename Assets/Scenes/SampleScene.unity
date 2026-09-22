@@ -10556,6 +10556,7 @@ GameObject:
   - component: {fileID: 60198680}
   - component: {fileID: 60198682}
   - component: {fileID: 60198683}
+  - component: {fileID: 60198684}
   m_Layer: 0
   m_Name: Test Enemy
   m_TagString: Untagged
@@ -10649,7 +10650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99860bdecf9eba24cb3b31be72dfd57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityHealth
-  hp: 3
+  hp: 2
   invulTime: 1
   canDamange: 1
   testDamage: 0
@@ -10674,6 +10675,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &60198684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60198679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844787cba2601af42aa6266094b66899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityDamage
+  damage: 8
 --- !u!1001 &61158372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360178,8 +360192,12 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: hp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: ammo
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
