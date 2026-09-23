@@ -8,7 +8,7 @@ public class PlayerState : MonoBehaviour
     PlayerInventory playerInventory;
     PlayerRun playerRun;
 
-    bool isStanding = false;
+    bool isStanding = true;
     
     void Awake()
     {

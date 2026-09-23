@@ -5,13 +5,9 @@ public class PlayerJump : MonoBehaviour
     Rigidbody rigid;
     Collider col;
 
-    public float jumpMax = 12f;
+    public float jumpMax = 10f;
 
-    public float jumpGain = 0.000000025f;
-    private float jumpBonus = 0f;
-
-    private bool isCharging = false;
-   
+    public float jumpGain = 10f;
 
     void Awake()
     {
@@ -27,27 +23,65 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newVelocity = rigid.linearVelocity;
+        //Vector3 newVelocity = rigid.linearVelocity;
 
-        /*if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
-            jumpBonus = 0f;
-        }*/
+            Vector3 velocity = rigid.linearVelocity;
+            velocity.y = jumpMax;
+            rigid.linearVelocity = velocity;
 
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
-        {
-            if (jumpBonus < jumpMax)
-                jumpBonus += jumpGain;
-            Debug.Log("Holding the key! JumpBonus: " + jumpBonus);
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
-        {
-            newVelocity.y = jumpBonus;
-            rigid.linearVelocity = newVelocity;
-
-            jumpBonus = 0f;
+        {    
+            if (rigid.linearVelocity.y > 0)
+            {
+                Vector3 velocity = rigid.linearVelocity;
+                velocity.y *= 0.5f;
+                rigid.linearVelocity = velocity;
+            }
         }
+
+
+        /*if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            //State is charging = true;
+            isCharging = true;
+            timeJumpPressed = Time.time;
+            Debug.Log("Jump button pressed at: " + timeJumpPressed);
+        }
+
+        //Debug.Log("isCharging: " + isCharging + "\nTime.time: " + Time.time);
+
+        if(isCharging)
+        {
+            jumpBonus+=jumpGain * Time.deltaTime;;
+            Debug.Log("Jump Bonus: " + jumpBonus);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space) && IsGrounded())
+        {
+            Debug.Log("Jump button unpressed!");
+            //This is when the player jumps
+            isCharging = false;
+            timeJumpPressed = 0;
+
+            if(jumpBonus == 0)
+                newVelocity.y = jumpMax;
+            else
+                newVelocity.y = jumpBonus;
+
+            rigid.linearVelocity = newVelocity;
+            jumpBonus = 0;
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        {
+            newVelocity.y = jumpMax;
+            rigid.linearVelocity = newVelocity;
+        }*/
     }
 
 

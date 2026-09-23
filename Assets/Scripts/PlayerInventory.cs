@@ -23,7 +23,6 @@ public class PlayerInventory : MonoBehaviour
 
     public bool ammoCheat = false;
 
-    public int gunDamage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -127,26 +126,6 @@ public class PlayerInventory : MonoBehaviour
         //Debug.Log("I frames ended!");
     }
 
-    public int getDamage(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            //return player contact damage.
-            Debug.Log("Player Contact damage!");
-            return 1;
-        }
-        else if(other.tag == "PlayerWeapon")
-        {
-            Debug.Log("Player Gun damage!");
-            return gunDamage;
-        }
-        else
-        {
-            //Unknown damage source originating from the player
-            return 1;
-        }
-    }
-
     public bool getAmmoCheat()
     {
         return ammoCheat;
@@ -165,11 +144,6 @@ public class PlayerInventory : MonoBehaviour
     public void fire(int amount)
     {
         ammo-=amount;
-    }
-
-    public int getGunDamage()
-    {
-        return gunDamage;
     }
      
 }
