@@ -36,7 +36,7 @@ public class EntityHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Thing inside me!: " + other.tag);
+        //Debug.Log("Thing inside me!: " + other.tag);
         
         if(other.tag == "Player" || other.tag == "PlayerWeapon")
         {

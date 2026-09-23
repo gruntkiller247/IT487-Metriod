@@ -7,8 +7,6 @@ public class PlayerJump : MonoBehaviour
 
     public float jumpMax = 10f;
 
-    public float jumpGain = 10f;
-
     void Awake()
     {
         rigid = transform.GetComponentInParent<Rigidbody>();
