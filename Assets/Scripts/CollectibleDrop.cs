@@ -30,9 +30,14 @@ public class CollectibleDrop : MonoBehaviour
 
     public void dropThing(Vector3 position)
     {
-        
         int num;
         num = Random.Range(1, 11);
+
+        if(alwaysDropHp)
+        {
+            dropHP(position);
+            return;
+        }
 
         if(num >= 5)
         {
@@ -57,12 +62,14 @@ public class CollectibleDrop : MonoBehaviour
 
     void dropMissiles(Vector3 position)
     {
-        Instantiate(missileDrop,position, Quaternion.identity);
+        GameObject thing = Instantiate(hpDrop,position, Quaternion.identity);
+        thing.GetComponent<PickupInventory>().missileAmount = this.missileAmount;
     }
 
     void dropHP(Vector3 position)
     {
-        Instantiate(hpDrop,position, Quaternion.identity);
+        GameObject thing = Instantiate(hpDrop,position, Quaternion.identity);
+        thing.GetComponent<PickupInventory>().hpAmount = this.hpAmount;
     }
 
     public int getHpAmount()

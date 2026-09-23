@@ -68,6 +68,8 @@ public class PlayerInventory : MonoBehaviour
                 return;
         }
         */
+        //Debug.Log("Other tag: " + other.tag);
+        //Debug.Log("Other name: " + other.name);
         if(other.tag == "MorphBall")
         {
             Destroy(other.GameObject());
@@ -86,12 +88,16 @@ public class PlayerInventory : MonoBehaviour
             }
 
         }
-        else if(other.tag == "PickUp")
+        else if(other.tag == "HpPickUp")
         {
-            if(other.tag == "HP Pickup")
-             hp+= other.GetComponent<CollectibleDrop>().getHpAmount();
-            else if(other.tag == "Missile Pickup")
-             ammo+=other.GetComponent<CollectibleDrop>().getMissilesAmount();
+            //Debug.Log(other.GetComponent<PickupInventory>().getHp());
+            hp += other.GetComponent<PickupInventory>().getHp();
+            setHpText();   
+        }
+        else if(other.tag == "MisslePickUp")
+        {
+            ammo += other.GetComponent<PickupInventory>().getMissiles();
+            //setMissileText -- I never played far enough to get missiles IDK if there is UI for them - ME
         }
     }
 

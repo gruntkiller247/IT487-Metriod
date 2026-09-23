@@ -360402,6 +360402,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9101606130154578325, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
+      propertyPath: missileDrop
+      value: 
+      objectReference: {fileID: 1558460471837614598, guid: c3c1f4fa5d0dbb84a86a89c0d90c6aa8, type: 3}
+    - target: {fileID: -9101606130154578325, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
+      propertyPath: alwaysDropHp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6159113982283602471, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 38
@@ -360442,13 +360450,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6270862197157156671, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
+      propertyPath: canMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
       propertyPath: m_Name
       value: Zoomer
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

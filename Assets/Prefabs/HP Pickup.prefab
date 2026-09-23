@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5990997993222935254}
   - component: {fileID: 4148925424717270166}
   - component: {fileID: 7802718130695388281}
-  m_Layer: 9
+  - component: {fileID: -3701778275817785558}
+  m_Layer: 8
   m_Name: HP Pickup
-  m_TagString: PickUp
+  m_TagString: HpPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,3 +155,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7786f903f9977784e937a2583a87b9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyOnTriggerEnter
+--- !u!114 &-3701778275817785558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558460471837614598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c07bc838cfaa4b54da05e0ef195b857b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupInventory
+  hpAmount: 0
+  missileAmount: 0

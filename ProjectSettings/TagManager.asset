@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - PlayerWeapon
   - Wall
+  - HpPickUp
+  - MissilePickUp
+  - PickUp
   layers:
   - Default
   - TransparentFX
