@@ -58,6 +58,8 @@ public class PlayerWeapon : MonoBehaviour
 
             }
 
+
+            //Use this code for the Missile whenever it gets implemented!
             if(!playerInventory.getAmmoCheat())
                 playerInventory.fire();
            

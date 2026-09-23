@@ -14,10 +14,12 @@ public class EntityHealth : MonoBehaviour
     public bool canDamange = true;
 
     public bool testDamage = false;
+
+    CollectibleDrop cd;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        cd = GetComponent<CollectibleDrop>();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class EntityHealth : MonoBehaviour
     {
         //Debug.Log("Thing inside me!: " + other.tag);
         
-        if(other.tag == "Player" || other.tag == "PlayerWeapon")
+        if(other.tag == "PlayerWeapon")
         {
             //Damage the self here. Let enemy deal with damage
             if(canDamange)
@@ -85,6 +87,15 @@ public class EntityHealth : MonoBehaviour
         {
             //Debug.Log("Enemy has died!");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if(!cd)
+            {
+                Debug.Log("Cannot find script to drop a collectible!");
+            }
+            else
+            {
+                cd.dropThing(transform.position);
+            }
+
             gameObject.SetActive(false);
             
         }

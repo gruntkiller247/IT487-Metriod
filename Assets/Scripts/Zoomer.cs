@@ -11,6 +11,8 @@ public class Zoomer : MonoBehaviour
     private bool ignoreObsticale = false;
     
     public Directions lookingDirection = Directions.east;
+
+    public bool canMove = true;
     public enum Directions
     {
         north = 0,
@@ -27,7 +29,7 @@ public class Zoomer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Application.targetFrameRate = 1;
+        //Application.targetFrameRate = 1;
     }
 
     // Update is called once per frame
@@ -69,10 +71,13 @@ public class Zoomer : MonoBehaviour
 
         //Need to keep track of my current dirction + what rotation I am
 
+        if(!canMove)
+          return;
+
         if(raycastForward() == 0 || ignoreObsticale)
         {
             //Space in front of me is emptyspace
-            Debug.Log("Space in front is empty!");
+            //Debug.Log("Space in front is empty!");
            
 
 
@@ -84,7 +89,7 @@ public class Zoomer : MonoBehaviour
                 //If going east x++
                 //If going south y--
                 //If going west x--
-                Debug.Log("Space in front and down is a block!");
+                //Debug.Log("Space in front and down is a block!");
                 
                 switch (lookingDirection)//What is wrong here
                 {
@@ -113,7 +118,7 @@ public class Zoomer : MonoBehaviour
                 //Move rotate right then move forward
                 //lookingDirection
                 //Trying to do this move 
-                Debug.Log("Space in front and down is empty space!");
+                //Debug.Log("Space in front and down is empty space!");
 
                 transform.Rotate(0, 0, -90);
                 switch (lookingDirection)
@@ -173,8 +178,8 @@ public class Zoomer : MonoBehaviour
             {
                 transform.Rotate(0, 0, 90);
 
-                Debug.Log("Space in front of me is a wall!");
-                Debug.Log("My looking direction was: " + lookingDirection);
+                //Debug.Log("Space in front of me is a wall!");
+                //Debug.Log("My looking direction was: " + lookingDirection);
                     //Debug.Log("Trying to rotate Left!");
                     switch (lookingDirection)
                     {
@@ -198,7 +203,7 @@ public class Zoomer : MonoBehaviour
             
         }
 
-        Debug.Log("");
+        //Debug.Log("");
 
     }
 
@@ -225,14 +230,14 @@ public class Zoomer : MonoBehaviour
         if(Physics.SphereCast(ray,radius,out hit, 1))
         {
             //Wanting to move forwards but hit a wall, rotate left
-            Debug.Log("forwardRay: Name of thing hit: " + hit.collider.gameObject.tag);
+            //Debug.Log("forwardRay: Name of thing hit: " + hit.collider.gameObject.tag);
 
             if(hit.collider.gameObject.tag != "Wall")
             {
                 //The ray hit something that isn't a wall such as the player or an item etc...
                 //We just ignore them and keep moving in this direction
                 ignoreObsticale = true; 
-                Debug.Log("hit a thing that is not a wall! Need to ignore it!");
+                //Debug.Log("hit a thing that is not a wall! Need to ignore it!");
             }
             else
                 ignoreObsticale = false;

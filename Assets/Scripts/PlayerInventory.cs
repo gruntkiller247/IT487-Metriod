@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerInventory : MonoBehaviour
 
     public int hp = 3;
 
-    public int ammo = 50;
+    public int ammo = 50;       //Amount of Missiles held
 
     public bool canDamange = true;
 
@@ -23,11 +24,19 @@ public class PlayerInventory : MonoBehaviour
 
     public bool ammoCheat = false;
 
+    public TMP_Text healthText; 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if(healthText == null)
+        {
+            Debug.Log("Player has no HP UI Text!");
+            setHpText(0);
+        }
+        else
+         setHpText();
     }
 
     // Update is called once per frame
@@ -77,6 +86,13 @@ public class PlayerInventory : MonoBehaviour
             }
 
         }
+        else if(other.tag == "PickUp")
+        {
+            if(other.tag == "HP Pickup")
+             hp+= other.GetComponent<CollectibleDrop>().getHpAmount();
+            else if(other.tag == "Missile Pickup")
+             ammo+=other.GetComponent<CollectibleDrop>().getMissilesAmount();
+        }
     }
 
     public bool HasMorphBall()
@@ -111,6 +127,10 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
+            if(healthText != null)
+            {
+                setHpText();
+            }
             invulTimes = invul(invulTime);
             StartCoroutine(invul(invulTime));
         }
@@ -144,6 +164,17 @@ public class PlayerInventory : MonoBehaviour
     public void fire(int amount)
     {
         ammo-=amount;
+    }
+
+    private void setHpText()
+    {
+        healthText.text = "EN--"+hp;
+    }
+
+    //For error handling
+    private void setHpText(int num)
+    {
+         healthText.text = "EN--"+num;
     }
      
 }
