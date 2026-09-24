@@ -11,6 +11,17 @@ public class PlayerDirection : MonoBehaviour
 
     public Sprite spriteLookingForward;
     public Sprite spriteLookingUpward;
+
+    public Sprite invulSpriteForward;
+    public Sprite invulSpriteUpward;
+
+    private bool defaultSprite = true;
+
+    void Awake()
+    {
+        
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +31,8 @@ public class PlayerDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("defaultSprite: " + defaultSprite);
+
         float horizontalAxis = Input.GetAxis("Horizontal");
 
         if(facingRight && horizontalAxis < 0)
@@ -49,12 +62,22 @@ public class PlayerDirection : MonoBehaviour
         if(lookingUp && !holdingUp)
         {
             lookingUp = false;
-            spriteRenderer.sprite = spriteLookingForward;
+            
+            if(defaultSprite)
+                spriteRenderer.sprite = spriteLookingForward;
+            else
+                spriteRenderer.sprite = invulSpriteForward;
+
+            
         }
         else if(!lookingUp && holdingUp)
         {
             lookingUp = true;
-            spriteRenderer.sprite = spriteLookingUpward;
+            
+            if(defaultSprite)
+                spriteRenderer.sprite = spriteLookingUpward;
+            else
+                spriteRenderer.sprite = invulSpriteUpward;
         }
         
 
@@ -69,4 +92,24 @@ public class PlayerDirection : MonoBehaviour
     {
         return lookingUp;
     }
+
+    public void useInvulSkins()
+    {
+        defaultSprite = false;
+        if (lookingUp)
+            spriteRenderer.sprite = invulSpriteUpward;
+        else
+            spriteRenderer.sprite = invulSpriteForward;   
+    }
+
+    public void useDefaultSkins()
+    {
+        defaultSprite = true;
+        if (lookingUp)
+            spriteRenderer.sprite = spriteLookingUpward;
+        else
+            spriteRenderer.sprite = spriteLookingForward;
+    }
+
+
 }

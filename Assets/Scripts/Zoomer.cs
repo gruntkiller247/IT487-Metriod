@@ -29,7 +29,7 @@ public class Zoomer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Application.targetFrameRate = 1;
+        //Application.targetFrameRate = 1;
     }
 
     // Update is called once per frame
@@ -74,11 +74,11 @@ public class Zoomer : MonoBehaviour
         if(!canMove)
           return;
           
-        Debug.Log("My looking direction was: " + lookingDirection);
+        //Debug.Log("My looking direction was: " + lookingDirection);
         if(raycastForward() == 0 || ignoreObsticale)
         {
             //Space in front of me is emptyspace
-            Debug.Log("Space in front is empty!");
+            //Debug.Log("Space in front is empty!");
            
 
 
@@ -90,7 +90,7 @@ public class Zoomer : MonoBehaviour
                 //If going east x++
                 //If going south y--
                 //If going west x--
-                Debug.Log("Space in front and down is a block!");
+                //Debug.Log("Space in front and down is a block!");
                 
                 switch (lookingDirection)//What is wrong here
                 {
@@ -119,14 +119,14 @@ public class Zoomer : MonoBehaviour
                 //Move rotate right then move forward
                 //lookingDirection
                 //Trying to do this move 
-                Debug.Log("Space in front and down is empty space!");
+                //Debug.Log("Space in front and down is empty space!");
 
                 //if looking south, turn left
                 //if looking north turn right
 
                 if(lookingDirection == Directions.south)
                 {
-                    Debug.Log("Double Blank and moving south!");
+                    //Debug.Log("Double Blank and moving south!");
                     transform.Rotate(0,0,90);
                     lookingDirection = Directions.west;
                     //transform.position += new Vector3(-1,0,0);
@@ -222,7 +222,7 @@ public class Zoomer : MonoBehaviour
         }
 
         Debug.Log("Position: " + transform.position);
-        Debug.Log("");
+        //Debug.Log("");
 
     }
 

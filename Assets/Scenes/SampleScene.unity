@@ -360325,6 +360325,14 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2964988505357570281, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: invulSpriteUpward
+      value: 
+      objectReference: {fileID: 25038619, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
+    - target: {fileID: 2964988505357570281, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: invulSpriteForward
+      value: 
+      objectReference: {fileID: -1975990356, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
     - target: {fileID: 3000568168094167655, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.5
@@ -360375,7 +360383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575969477524420703, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: hp
@@ -360464,7 +360472,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

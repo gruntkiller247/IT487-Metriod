@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d6543dd9ccda74d9e4eb872c3bbd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpPower: 12
+  jumpMax: 10
 --- !u!114 &5591881713172313647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d6543dd9ccda74d9e4eb872c3bbd19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpPower: 12
+  jumpMax: 10
 --- !u!114 &7138075823283499621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +462,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2936744532908039241}
   spriteLookingForward: {fileID: 21300000, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
   spriteLookingUpward: {fileID: 21300002, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
+  spriteLookingForwardInvul: {fileID: 21300000, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
+  spriteLookingUpInvul: {fileID: 0}
 --- !u!114 &4654261316591092314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +498,7 @@ MonoBehaviour:
   testDamage: 0
   invulCheat: 0
   ammoCheat: 0
-  gunDamage: 1
+  healthText: {fileID: 0}
 --- !u!114 &-5307734971886488861
 MonoBehaviour:
   m_ObjectHideFlags: 0

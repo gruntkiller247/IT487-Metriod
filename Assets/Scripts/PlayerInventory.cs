@@ -26,6 +26,12 @@ public class PlayerInventory : MonoBehaviour
 
     public TMP_Text healthText; 
 
+    private PlayerDirection pd;
+
+    void Awake()
+    {
+        pd = GetComponentInParent<PlayerDirection>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -138,6 +144,8 @@ public class PlayerInventory : MonoBehaviour
                 setHpText();
             }
             invulTimes = invul(invulTime);
+            //Change skin
+            
             StartCoroutine(invul(invulTime));
         }
     }
@@ -145,10 +153,14 @@ public class PlayerInventory : MonoBehaviour
     private IEnumerator invul(float waitTime)
     {
         //Debug.Log("Currently using Invul Frames!");
+        pd.useInvulSkins();
         canDamange = false;
         yield return new WaitForSeconds(waitTime);
 
+        pd.useDefaultSkins();
         canDamange = true;
+
+        //Reset Skin
         //Debug.Log("I frames ended!");
     }
 
