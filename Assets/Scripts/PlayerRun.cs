@@ -21,7 +21,7 @@ public class PlayerRun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 newVelocity = rigid.linearVelocity;
 
@@ -53,6 +53,25 @@ public class PlayerRun : MonoBehaviour
                 }
             }
         }
+        //Check for walls when moving.
+        if (newVelocity.x != 0)
+        {
+            Collider col = transform.GetComponentInChildren<Collider>();
+            float edge = col.bounds.center.x + (col.bounds.extents.x * Mathf.Sign(newVelocity.x));
+            Vector2 rayStart = new Vector2(edge, col.bounds.center.y);
+
+            RaycastHit hit;
+            Physics.Raycast(rayStart, new Vector2(Mathf.Sign(newVelocity.x), 0), out hit, Mathf.Abs(newVelocity.x/60));
+            if (hit.collider != null)
+            {
+                Debug.Log("HIT SOMETHING WITH RAYCAST");
+                transform.position = new Vector2(transform.position.x + hit.distance, transform.position.y);
+                newVelocity.x = 0;
+            }    
+        }
+
+
+
 
         /*if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
