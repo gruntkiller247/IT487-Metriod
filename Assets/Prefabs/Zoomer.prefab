@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6870253136407153380}
   - component: {fileID: 6270862197157156671}
   - component: {fileID: -9101606130154578325}
+  - component: {fileID: 2912157079861710786}
   m_Layer: 10
   m_Name: Zoomer
   m_TagString: Enemy
@@ -160,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Zoomer
   moveSpeed: 1
   lookingDirection: 1
+  canMove: 1
 --- !u!114 &-9101606130154578325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +180,31 @@ MonoBehaviour:
   missileAmount: 3
   hpDrop: {fileID: 1558460471837614598, guid: 73ed518b12242184cb3a4e9de6c51c01, type: 3}
   missileDrop: {fileID: 0}
+  alwaysDropHp: 0
+--- !u!54 &2912157079861710786
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642561208385049596}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

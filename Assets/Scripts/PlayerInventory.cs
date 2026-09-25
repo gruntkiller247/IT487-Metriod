@@ -12,7 +12,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool hasMorphBall = false;
 
-    public int hp = 3;
+    [SerializeField] int hp = 3;
 
     public int ammo = 50;       //Amount of Missiles held
 
@@ -192,7 +192,7 @@ public class PlayerInventory : MonoBehaviour
     //For error handling
     private void setHpText(int num)
     {
-         healthText.text = "EN--"+num;
+        healthText.text = "EN--"+num;
     }
      
 }

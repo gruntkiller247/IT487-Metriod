@@ -22,14 +22,14 @@ public class PlayerRun : MonoBehaviour
     {
         Vector3 newVelocity = rigid.linearVelocity;
         newVelocity.x=Input.GetAxis("Horizontal") * moveSpeed;
-        
+        rigid.linearVelocity = newVelocity;
     
         /*if(Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
             newVelocity.y = jumpPower;
         }*/
 
-        rigid.linearVelocity = newVelocity;
+        
     }
 
 
