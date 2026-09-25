@@ -7,6 +7,8 @@ public class PlayerJump : MonoBehaviour
 
     public float jumpMax = 10f;
 
+    bool spinJump = false;
+
     void Awake()
     {
         rigid = transform.GetComponentInParent<Rigidbody>();
@@ -22,12 +24,22 @@ public class PlayerJump : MonoBehaviour
     void Update()
     {
         //Vector3 newVelocity = rigid.linearVelocity;
+        if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
+        {
+            Debug.Log("no longer spijumping");
+            spinJump = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             Vector3 velocity = rigid.linearVelocity;
             velocity.y = jumpMax;
             rigid.linearVelocity = velocity;
+            if (Input.GetAxisRaw("Horizontal") != 0)
+            {
+                Debug.Log("Spinjumping!");
+                spinJump = true;
+            }
 
             
         }
@@ -91,5 +103,10 @@ public class PlayerJump : MonoBehaviour
         float fullDistance = col.bounds.extents.y + 0.05f;
 
         return Physics.SphereCast(ray,radius,fullDistance);
+    }
+
+    public bool IsSpinJumping()
+    {
+        return spinJump;
     }
 }
