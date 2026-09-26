@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6270862197157156671}
   - component: {fileID: -9101606130154578325}
   - component: {fileID: 2912157079861710786}
+  - component: {fileID: -8690549279909792441}
   m_Layer: 10
   m_Name: Zoomer
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 7642561208385049596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38, y: 18, z: 0}
+  m_LocalPosition: {x: 39, y: 23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,8 +88,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1841538667362175379, guid: 53e89803ce3def642bc5db278e1966fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 427603251, guid: 8cbd80b6603415540bb106d47271a448, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,9 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122e8deff2d731d4d9ca0f2c31fef876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zoomer
-  moveSpeed: 1
-  lookingDirection: 1
+  moveSpeed: 0.01
+  lookingDirection: 2
   canMove: 1
+  limitFrameRate: 0
 --- !u!114 &-9101606130154578325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +181,8 @@ MonoBehaviour:
   hpAmount: 5
   missileAmount: 3
   hpDrop: {fileID: 1558460471837614598, guid: 73ed518b12242184cb3a4e9de6c51c01, type: 3}
-  missileDrop: {fileID: 0}
-  alwaysDropHp: 0
+  missileDrop: {fileID: 1558460471837614598, guid: c3c1f4fa5d0dbb84a86a89c0d90c6aa8, type: 3}
+  alwaysDropHp: 1
 --- !u!54 &2912157079861710786
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -208,3 +210,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8690549279909792441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642561208385049596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cef116655eb33d43b16ea96c00c6730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteMovement
+  sprites:
+  - {fileID: 427603251, guid: 8cbd80b6603415540bb106d47271a448, type: 3}
+  - {fileID: 81964576, guid: 8cbd80b6603415540bb106d47271a448, type: 3}
