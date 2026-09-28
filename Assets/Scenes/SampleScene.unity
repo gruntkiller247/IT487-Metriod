@@ -360379,7 +360379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7575969477524420703, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: hp
@@ -360406,6 +360406,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5988650030499036127, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
+      propertyPath: hp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6159113982283602471, guid: 7bd5457bdbed936408367fb853b841c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39

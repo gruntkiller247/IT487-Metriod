@@ -9,10 +9,13 @@ public class PlayerJump : MonoBehaviour
 
     bool spinJump = false;
 
+    PlayerState ps;
+
     void Awake()
     {
         rigid = transform.GetComponentInParent<Rigidbody>();
         col = transform.GetComponent<Collider>();
+        ps = transform.GetComponentInParent<PlayerState>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,36 +26,42 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 newVelocity = rigid.linearVelocity;
-        if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
-        {
-            Debug.Log("no longer spijumping");
-            spinJump = false;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if(ps.getStanding())
         {
-            Vector3 velocity = rigid.linearVelocity;
-            velocity.y = jumpMax;
-            rigid.linearVelocity = velocity;
-            if (Input.GetAxisRaw("Horizontal") != 0)
+                //Vector3 newVelocity = rigid.linearVelocity;
+            if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
             {
-                Debug.Log("Spinjumping!");
-                spinJump = true;
+                Debug.Log("no longer spijumping");
+                spinJump = false;
             }
 
-            
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {    
-            if (rigid.linearVelocity.y > 0)
+            if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
             {
                 Vector3 velocity = rigid.linearVelocity;
-                velocity.y *= 0.5f;
+                velocity.y = jumpMax;
                 rigid.linearVelocity = velocity;
+                if (Input.GetAxisRaw("Horizontal") != 0)
+                {
+                    Debug.Log("Spinjumping!");
+                    spinJump = true;
+                }
+
+                
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {    
+                if (rigid.linearVelocity.y > 0)
+                {
+                    Vector3 velocity = rigid.linearVelocity;
+                    velocity.y *= 0.5f;
+                    rigid.linearVelocity = velocity;
+                }
             }
         }
+
+        
 
 
         /*if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())

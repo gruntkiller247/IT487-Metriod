@@ -64,7 +64,7 @@ public class PlayerRun : MonoBehaviour
             Physics.Raycast(rayStart, new Vector2(Mathf.Sign(newVelocity.x), 0), out hit, Mathf.Abs(newVelocity.x/60));
             if (hit.collider != null)
             {
-                Debug.Log("HIT SOMETHING WITH RAYCAST");
+                //Debug.Log("HIT SOMETHING WITH RAYCAST");
                 transform.position = new Vector2(transform.position.x + hit.distance, transform.position.y);
                 newVelocity.x = 0;
             }    

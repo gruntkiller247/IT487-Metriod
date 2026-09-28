@@ -50,4 +50,9 @@ public class PlayerState : MonoBehaviour
             isStanding = true;
         }
     }
+
+    public bool getStanding()
+    {
+        return isStanding;
+    }
 }
