@@ -64,6 +64,11 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            invulCheat = !invulCheat;
+            ammoCheat = !ammoCheat;
+        }
 
         if(invulCheat)
             canDamange = false;
