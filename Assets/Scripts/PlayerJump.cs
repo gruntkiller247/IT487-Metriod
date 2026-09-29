@@ -36,7 +36,7 @@ public class PlayerJump : MonoBehaviour
                 spinJump = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+            if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
             {
                 Vector3 velocity = rigid.linearVelocity;
                 velocity.y = jumpMax;
@@ -51,7 +51,7 @@ public class PlayerJump : MonoBehaviour
                 
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.X))
             {    
                 if (rigid.linearVelocity.y > 0)
                 {

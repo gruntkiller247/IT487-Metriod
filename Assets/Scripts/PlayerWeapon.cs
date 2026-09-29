@@ -29,7 +29,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         //Debug.Log("Ammo: " + playerInventory.getAmmoAmount());
 
-        if((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Slash)) && (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
+        if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)) && (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
         {
             GameObject bulletInstance = GameObject.Instantiate(bulletPrefab);
             

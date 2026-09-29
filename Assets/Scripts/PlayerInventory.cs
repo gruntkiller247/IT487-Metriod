@@ -26,6 +26,7 @@ public class PlayerInventory : MonoBehaviour
     public bool ammoCheat = false;
 
     public TMP_Text healthText; 
+    public TMP_Text missileText; 
 
     private PlayerDirection pd;
 
@@ -41,9 +42,23 @@ public class PlayerInventory : MonoBehaviour
         {
             Debug.Log("Player has no HP UI Text!");
             setHpText(0);
+            
         }
         else
-         setHpText();
+        {
+            setHpText();
+        }
+        
+
+        if(missileText == null)
+        {
+            Debug.Log("No Missile Text!");
+            setMissileText(0);
+        }
+        else
+        {
+            setMissileText();
+        }
     }
 
     // Update is called once per frame
@@ -109,7 +124,7 @@ public class PlayerInventory : MonoBehaviour
         else if(other.tag == "MisslePickUp")
         {
             ammo += other.GetComponent<PickupInventory>().getMissiles();
-            //setMissileText -- I never played far enough to get missiles IDK if there is UI for them - ME
+            setMissileText();
         }
     }
 
@@ -183,11 +198,13 @@ public class PlayerInventory : MonoBehaviour
     public void fire()
     {
         ammo--;
+        setMissileText();
     }
 
     public void fire(int amount)
     {
         ammo-=amount;
+        setMissileText();
     }
 
     private void setHpText()
@@ -199,6 +216,16 @@ public class PlayerInventory : MonoBehaviour
     private void setHpText(int num)
     {
         healthText.text = "EN--"+num;
+    }
+    private void setMissileText()
+    {
+        missileText.text = "MI--"+ammo;
+    }
+
+    //For error handling
+    private void setMissileText(int num)
+    {
+        missileText.text = "MI--"+num;
     }
      
 }
