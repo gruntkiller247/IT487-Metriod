@@ -11,6 +11,7 @@ TagManager:
   - PickUp
   - HpPickUp
   - MisslePickUp
+  - LongBeam
   layers:
   - Default
   - TransparentFX

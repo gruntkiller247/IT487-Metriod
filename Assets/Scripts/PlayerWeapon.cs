@@ -57,7 +57,10 @@ public class PlayerWeapon : MonoBehaviour
                 }
 
             }
-
+            if (playerInventory.hasLongBeam)
+            {
+                bulletInstance.GetComponent<DestroyOnTime>().destroyTime *= 2;
+            }
 
             //Use this code for the Missile whenever it gets implemented!
             if(!playerInventory.getAmmoCheat())

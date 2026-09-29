@@ -32,7 +32,7 @@ public class PlayerJump : MonoBehaviour
                 //Vector3 newVelocity = rigid.linearVelocity;
             if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
             {
-                Debug.Log("no longer spijumping");
+                ps.morphBody(false);
                 spinJump = false;
             }
 
@@ -43,8 +43,9 @@ public class PlayerJump : MonoBehaviour
                 rigid.linearVelocity = velocity;
                 if (Input.GetAxisRaw("Horizontal") != 0)
                 {
-                    Debug.Log("Spinjumping!");
                     spinJump = true;
+                    //The below doesn't work because of how these weird child objects are set up. I will be controlling this through animations in the future. -Ethelyn
+                    //ps.morphBody(true);
                 }
 
                 

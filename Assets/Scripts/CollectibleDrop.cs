@@ -62,7 +62,7 @@ public class CollectibleDrop : MonoBehaviour
 
     void dropMissiles(Vector3 position)
     {
-        GameObject thing = Instantiate(hpDrop,position, Quaternion.identity);
+        GameObject thing = Instantiate(missileDrop,position, Quaternion.identity);
         thing.GetComponent<PickupInventory>().missileAmount = this.missileAmount;
     }
 

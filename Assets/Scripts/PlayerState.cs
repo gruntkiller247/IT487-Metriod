@@ -55,4 +55,20 @@ public class PlayerState : MonoBehaviour
     {
         return isStanding;
     }
+
+    //Temporary method for activating the morph visibly. Will be replace later by more elegant animation and etc. - Ethelyn
+    //EDIT: nvm. doesn'tn't work. will make more elegant later -Ethelyn
+    public void morphBody(bool morph)
+    {
+        if (morph == true)
+        {
+            standing.SetActive(false);
+            morphed.SetActive(true);
+        }
+        else
+        {
+            standing.SetActive(true);
+            morphed.SetActive(false);
+        }
+    }
 }

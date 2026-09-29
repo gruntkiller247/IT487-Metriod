@@ -176,12 +176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352d9ee283b7a9640a0251f35893625a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleDrop
-  canDropMissiles: 0
+  canDropMissiles: 1
   canDropHealth: 1
   hpAmount: 5
   missileAmount: 3
   hpDrop: {fileID: 1558460471837614598, guid: 73ed518b12242184cb3a4e9de6c51c01, type: 3}
-  missileDrop: {fileID: 0}
+  missileDrop: {fileID: 1558460471837614598, guid: c3c1f4fa5d0dbb84a86a89c0d90c6aa8, type: 3}
   alwaysDropHp: 0
 --- !u!54 &-5993271288144576009
 Rigidbody:

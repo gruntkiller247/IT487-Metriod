@@ -11,6 +11,7 @@ public class PlayerInventory : MonoBehaviour
     public float invulTime = 5f;
 
     public bool hasMorphBall = false;
+    public bool hasLongBeam = false;
 
     [SerializeField] int hp = 3;
 
@@ -80,6 +81,11 @@ public class PlayerInventory : MonoBehaviour
         {
             Destroy(other.GameObject());
             hasMorphBall = !hasMorphBall;
+        }
+        else if (other.tag == "LongBeam")
+        {
+            Destroy(other.GameObject());
+            hasLongBeam = true;
         }
         else if(other.tag == "Enemy")
         {
