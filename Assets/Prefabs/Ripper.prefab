@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6870253136407153380}
   - component: {fileID: -9101606130154578325}
   - component: {fileID: -5993271288144576009}
-  - component: {fileID: 8223911706667285066}
+  - component: {fileID: -4312280119827197899}
   m_Layer: 10
-  m_Name: Skree
+  m_Name: Ripper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7642561208385049596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56, y: 26, z: 0}
+  m_LocalPosition: {x: 38, y: 18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193,7 +193,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8223911706667285066
+--- !u!114 &-4312280119827197899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,9 +202,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7642561208385049596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3051617cd71faa46bd298934b5b552f, type: 3}
+  m_Script: {fileID: 11500000, guid: dc02c238837303b44a0e1ebeaed65416, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Skree
-  distanceFromPlayer: 5
-  moveSpeedDown: 1
-  moveSpeedSideways: 0.5
+  m_EditorClassIdentifier: Assembly-CSharp::Ripper

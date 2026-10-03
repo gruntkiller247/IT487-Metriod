@@ -37,16 +37,17 @@ public class Skree : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
+        Vector3 movement;
         lowView = transform.position.x - distanceFromPlayer;
         highView = transform.position.x + distanceFromPlayer;
         
         if(player != null && (player.transform.position.x <= highView || player.transform.position.x >= lowView ))
         {
-            Debug.Log("I should be allowed to move!");
+            //Debug.Log("I should be allowed to move!");
             
             if(!Physics.Raycast(col.bounds.center,Vector3.down,out hit,0.5f))
             {
-                Vector3 movement = Vector3.down * moveSpeedDown * Time.fixedDeltaTime;
+                movement = Vector3.down * moveSpeedDown * Time.fixedDeltaTime;
                 rigid.Move(rigid.position + movement, rigid.rotation);
                 
                 if(Random.Range(0,2) == 1)
@@ -77,7 +78,7 @@ public class Skree : MonoBehaviour
             }
             else
             {
-                Debug.Log("I have hit the ground!");
+                //Debug.Log("I have hit the ground!");
             }
             
         }
