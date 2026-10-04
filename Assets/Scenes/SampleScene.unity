@@ -253221,6 +253221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ripper
       objectReference: {fileID: 0}
+    - target: {fileID: 7642561208385049596, guid: 7d219246a750d0f40841561e13b48bad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -301582,7 +301586,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223911706667285066, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
+      propertyPath: bulletMoveSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

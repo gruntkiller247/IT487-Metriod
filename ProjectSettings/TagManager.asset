@@ -12,6 +12,7 @@ TagManager:
   - HpPickUp
   - MisslePickUp
   - LongBeam
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,25 @@ public class DestroyOnTriggerEnter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(transform.gameObject);
+        if(other.transform.tag == "Enemy")
+        {
+            if(transform.tag == "PlayerWeapon")
+            {
+                Destroy(transform.gameObject);
+            }
+        }
+        else if(other.transform.tag == "Wall")
+        {
+            Destroy(transform.gameObject);
+        }
+        else if(other.transform.tag == "Player")
+        {
+            if(transform.tag != "PlayerWeapon")
+            {
+                Destroy(transform.gameObject);
+            }
+        }
+        
         /*Debug.Log(
         $"Hit: {other.name}\n" +
         $"GameObject: {other.gameObject.name}\n" +

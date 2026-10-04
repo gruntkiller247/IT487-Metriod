@@ -208,3 +208,6 @@ MonoBehaviour:
   distanceFromPlayer: 5
   moveSpeedDown: 1
   moveSpeedSideways: 0.5
+  explodeTime: 1
+  bullet: {fileID: 1558460471837614598, guid: 4c2f06866f2874041b76b8d363107f35, type: 3}
+  bulletMoveSpeed: 1
