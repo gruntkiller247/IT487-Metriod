@@ -14,6 +14,7 @@ TagManager:
   - LongBeam
   - Enemy Bullet
   - LavaBlock
+  - Room
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Player
   - Bullet
   - Zoomer
-  - 
+  - Room
   - 
   - 
   - 
