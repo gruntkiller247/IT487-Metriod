@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UIElements;
 public class Zeb : MonoBehaviour
 {
 
     [SerializeField] int distanceFromPlayer = 2;
+    [SerializeField] int distanceFromPlayerToDie = 20;
     public float moveSpeedUp = 1f;
     public float moveSpeedSideways = 0.5f;
 
@@ -91,8 +93,22 @@ public class Zeb : MonoBehaviour
         else
         {
             //Move in that direction
-            
             rigid.linearVelocity = playerDirection * moveSpeedSideways;
+
+            //distanceFromPlayerToDie
+            //p.x = 20
+            //Distance +-20
+            //m.x = 10
+            //-10 <-> 30
+            //player.transform.position.x 
+            if(player.transform.position.x > transform.position.x + distanceFromPlayerToDie || player.transform.position.x < transform.position.x - distanceFromPlayerToDie)
+            {
+                //Debug.Log("Killing myself!");
+                //Debug.Log("Player: " + player.transform.position.x);
+                //Debug.Log("Distance: " + distanceFromPlayerToDie);
+                //Debug.Log("Greator: " + (distanceFromPlayerToDie+transform.position.x) + "\nLesser: " + (distanceFromPlayerToDie + transform.position.x));
+                GetComponent<EntityHealth>().kill();
+            }
         }
     }
 

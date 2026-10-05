@@ -228922,6 +228922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zeb
       objectReference: {fileID: 0}
+    - target: {fileID: 7642561208385049596, guid: 29d58d0da9b0da2478583e849ff865dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

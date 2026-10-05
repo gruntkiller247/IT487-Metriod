@@ -206,5 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   distanceFromPlayer: 2
+  distanceFromPlayerToDie: 10
   moveSpeedUp: 1
   moveSpeedSideways: 3
