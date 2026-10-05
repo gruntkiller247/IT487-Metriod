@@ -29,9 +29,13 @@ public class DestroyOnTriggerEnter : MonoBehaviour
         }
         else if(other.transform.tag == "Player")
         {
-            if(transform.tag != "PlayerWeapon")
+            if(transform.tag != "PlayerWeapon" && transform.tag != "LavaBlock")
             {
                 Destroy(transform.gameObject);
+            }
+            else if(transform.tag == "LavaBlock" && other.tag == "Player") 
+            {
+                other.GetComponentInParent<PlayerInventory>().takeDamage(transform.GetComponent<Collider>());
             }
         }
         

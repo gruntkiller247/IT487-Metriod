@@ -138,7 +138,7 @@ public class PlayerInventory : MonoBehaviour
         return hasMorphBall;
     }
 
-    private void takeDamage(Collider other)
+    public void takeDamage(Collider other)
     {
         if(!other)
         {

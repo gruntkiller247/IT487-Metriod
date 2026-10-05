@@ -13,6 +13,7 @@ TagManager:
   - MisslePickUp
   - LongBeam
   - Enemy Bullet
+  - LavaBlock
   layers:
   - Default
   - TransparentFX
