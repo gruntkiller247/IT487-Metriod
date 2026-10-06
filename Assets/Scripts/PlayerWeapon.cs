@@ -11,6 +11,8 @@ public class PlayerWeapon : MonoBehaviour
     public Transform firingPositionForward;
     public Transform firingPositionUpward;
 
+    public SpriteRenderer spriteRenderer;
+
     public float firingSpeed = 10f;
 
     public bool missileSelect = false;
@@ -25,7 +27,7 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,9 +35,16 @@ public class PlayerWeapon : MonoBehaviour
     {
         //Debug.Log("Ammo: " + playerInventory.getAmmoAmount());
 
-        if((Input.GetKeyDown(KeyCode.LeftShift)) && playerInventory.hasMissiles == true)
+        if((Input.GetKeyDown(KeyCode.Space)) && playerInventory.hasMissiles == true)
         {
             missileSelect = !missileSelect;
+            if (missileSelect) {
+                spriteRenderer.color = new Color32(255, 180, 200, 255);
+            }
+            else
+            {
+                spriteRenderer.color = Color.white;
+            }
         }
 
         if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))

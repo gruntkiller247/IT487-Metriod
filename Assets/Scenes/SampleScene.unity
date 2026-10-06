@@ -360579,6 +360579,22 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2936744532908039241, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936744532908039241, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936744532908039241, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936744532908039241, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3000568168094167655, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.5
@@ -360635,6 +360651,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7746071668660002156, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: missilePrefab
+      value: 
+      objectReference: {fileID: 1558460471837614598, guid: b32d1430274177e43ba49ed49e392f5c, type: 3}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: hp
       value: 30
@@ -360647,6 +360667,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 875660591}
+    - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: hasMissiles
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: missileText
       value: 
