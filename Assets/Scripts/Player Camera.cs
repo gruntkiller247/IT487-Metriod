@@ -14,6 +14,8 @@ public class PlayerCamera : MonoBehaviour
     private  Vector3 roomExtents;
 
     LayerMask layerMask;
+
+    private Camera cam;
     
     void Start()
     {
@@ -24,6 +26,7 @@ public class PlayerCamera : MonoBehaviour
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
 
+        cam = GetComponent<Camera>();
         
         
 
@@ -65,23 +68,51 @@ public class PlayerCamera : MonoBehaviour
             //current pos + extent.x 16 width  >= current pos
             //If yes I am close to the edge of the room and the camera should stand still! 
 
-            Debug.Log("Player x location: " + (playerLocation.position.x));
-            Debug.Log("extents: " + roomExtents.x);
-            Debug.Log("Formula on right: " + ((roomExtents.x*2) - 8));
+
             //At the upper edge of the room
-            if(playerLocation.position.x >= ((roomExtents.x*2) + -8))
+
+
+            //How to calculate the - or + dynamically?
+
+            float cameraHalfWidth = cam.orthographicSize * cam.aspect;
+            //Debug.Log("Camera halfWidth: " + cameraHalfWidth);
+
+            //Debug.Log("Player x location: " + (playerLocation.position.x));
+            //Debug.Log("extents: " + roomExtents.x);
+            //Debug.Log("Formula on right: " + ((roomExtents.x*2) - cameraHalfWidth));
+
+
+            if (playerLocation.position.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x)
             {
-                Debug.Log("To close to the Right Edge!");
+                //Debug.Log("To close to the Right Edge!");
                 canMove = false;
             }
-            else if(playerLocation.position.x <= ((roomExtents.x/2) + 8))
+            else if (playerLocation.position.x - cameraHalfWidth <= currentRoomCollider.bounds.min.x)
             {
-                
+                //Debug.Log("To close to the Left Edge!");
+                canMove = false;
             }
             else
             {
                 canMove = true;
             }
+
+            /*
+            if(playerLocation.position.x >= ((roomExtents.x*2) - cameraHalfWidth))
+            {
+                
+                canMove = false;
+            }
+            else if(playerLocation.position.x <= ((roomExtents.x/2) + cameraHalfWidth))
+            {
+                 
+                canMove = false;
+            }
+            else
+            {
+                canMove = true;
+            }
+            */
             
         }
 
@@ -100,6 +131,7 @@ public class PlayerCamera : MonoBehaviour
         //Debug.Log("I have been given info from the Camera Helper!");
         
         roomExtents = other.bounds.extents;
+        currentRoomCollider = other;
         
         //Debug.Log("The room's extents are: " + extents);
     }
