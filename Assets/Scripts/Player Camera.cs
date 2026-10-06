@@ -5,50 +5,102 @@ public class PlayerCamera : MonoBehaviour
 {
     [SerializeField] GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private bool canMoveLeft = true;
-    private bool canMoveRight = true;
-    private bool canMoveUp = true;
-    private bool canMoveDown = true;
+    private bool canMove = true;
 
     [SerializeField] float distanceFromWall = 16f;
 
     private Collider currentRoomCollider;
 
-     LayerMask layerMask;
+    private  Vector3 roomExtents;
+
+    LayerMask layerMask;
     
     void Start()
     {
         layerMask = LayerMask.GetMask("Wall");
+
         if(player == null)
         {
-             player = GameObject.FindGameObjectsWithTag("Player")[0];
+            player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
+
+        
+        
+
+        //Player loc is the location we need to compare for the camera
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
            Debug.Log("Hit a wall!");
         }
-        
+        */
     }
 
     void LateUpdate()
     {
+        Transform playerLocation = player.transform;
         
         //Camera width = 16
         //Camera height = 16
-       
+        if(roomExtents == null)
+        {
+            transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
+        }
+        else
+        {
+            //Compare the extents to the width/height restirction of the camera Currently 16 See above
+            //Then prevent the camera from moving once it is within the distance
+            //Debug.Log(extents);
 
-        transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
+            //THE EXTENTS ARE POSITION IGNORANT!
+            //Extents are also mesaured from the center of the room
+            //
+            //current pos + extent.x 16 width  >= current pos
+            //If yes I am close to the edge of the room and the camera should stand still! 
+
+            Debug.Log("Player x location: " + (playerLocation.position.x));
+            Debug.Log("extents: " + roomExtents.x);
+            Debug.Log("Formula on right: " + ((roomExtents.x*2) - 8));
+            //At the upper edge of the room
+            if(playerLocation.position.x >= ((roomExtents.x*2) + -8))
+            {
+                Debug.Log("To close to the Right Edge!");
+                canMove = false;
+            }
+            else if(playerLocation.position.x <= ((roomExtents.x/2) + 8))
+            {
+                
+            }
+            else
+            {
+                canMove = true;
+            }
+            
+        }
+
+        if(canMove)
+        {
+            transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
+        }
+
+        
         
     }
 
-    public void helperTellsMe(Collider other)
+    public void giveRoomColliderToCamera(Collider other)
     {
+       
+        //Debug.Log("I have been given info from the Camera Helper!");
         
+        roomExtents = other.bounds.extents;
+        
+        //Debug.Log("The room's extents are: " + extents);
     }
 }

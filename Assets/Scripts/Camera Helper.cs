@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class CameraHelper : MonoBehaviour
 {
-    private PlayerCamera playerCamera;
+    [SerializeField] PlayerCamera playerCamera;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //playerCamera = GetComponent<PlayerCamera>();
+
+        if(playerCamera == null)
+        {
+            Debug.LogError("Did not find Player Camera in the Helper!");
+        }
     }
 
     // Update is called once per frame
@@ -20,7 +25,8 @@ public class CameraHelper : MonoBehaviour
     {
         if(other.tag == "Room")
         {
-            Debug.Log("Still inside"); 
+            //Debug.Log("Still inside"); 
+            playerCamera.giveRoomColliderToCamera(other);
         }
         
            

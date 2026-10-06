@@ -317472,8 +317472,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 64.01258, y: 14.957937, z: 1}
-  m_Center: {x: 47.337772, y: 6.9789686, z: 0}
+  m_Size: {x: 79.74842, y: 14.957937, z: 1}
+  m_Center: {x: 39.469852, y: 6.9789686, z: 0}
 --- !u!4 &1864214121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -360968,6 +360968,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8846221667475093651, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 519420033}
     - target: {fileID: 8931988499480437268, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: hp
       value: 30

@@ -232,5 +232,10 @@ public class PlayerInventory : MonoBehaviour
     {
         missileText.text = "MI--"+num;
     }
+
+    public Transform getPlayerLocation()
+    {
+        return gameObject.transform;
+    }
      
 }
