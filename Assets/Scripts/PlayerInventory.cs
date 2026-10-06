@@ -13,6 +13,8 @@ public class PlayerInventory : MonoBehaviour
     public bool hasMorphBall = false;
     public bool hasLongBeam = false;
 
+    public bool hasMissiles = false;
+
     [SerializeField] int hp = 3;
 
     public int ammo = 50;       //Amount of Missiles held

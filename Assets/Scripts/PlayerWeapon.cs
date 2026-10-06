@@ -7,10 +7,14 @@ public class PlayerWeapon : MonoBehaviour
     PlayerInventory playerInventory;
 
     public GameObject bulletPrefab;
+    public GameObject missilePrefab;
     public Transform firingPositionForward;
     public Transform firingPositionUpward;
 
     public float firingSpeed = 10f;
+
+    public bool missileSelect = false;
+    
 
     void Awake()
     {
@@ -29,14 +33,35 @@ public class PlayerWeapon : MonoBehaviour
     {
         //Debug.Log("Ammo: " + playerInventory.getAmmoAmount());
 
+        if((Input.GetKeyDown(KeyCode.LeftShift)) && playerInventory.hasMissiles == true)
+        {
+            missileSelect = !missileSelect;
+        }
+
         if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)) && (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
         {
-            GameObject bulletInstance = GameObject.Instantiate(bulletPrefab);
+            GameObject bulletInstance;
+            if (missileSelect)
+            {
+                bulletInstance = GameObject.Instantiate(missilePrefab);
+            }
+            else
+            {
+                bulletInstance = GameObject.Instantiate(bulletPrefab);
+                if (playerInventory.hasLongBeam)
+                {
+                    bulletInstance.GetComponent<DestroyOnTime>().destroyTime *= 2;
+                }
+            }
+            
+            
             
             if(playerDirection.isLookingUp())
             {
+                bulletInstance.transform.Rotate(0, 0, 90);
                 bulletInstance.transform.position = firingPositionUpward.position;
                 bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.up * firingSpeed;
+                
                 //Debug.Log("Shooting up!");
             }
             else
@@ -52,15 +77,13 @@ public class PlayerWeapon : MonoBehaviour
                 else
                 {
                     bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.left * firingSpeed;
+                    bulletInstance.GetComponent<SpriteRenderer>().flipX = true;
                     //Debug.Log("Shooting Left!");
                     //Debug.Log($"Velocity is {Vector3.left * firingSpeed}");
                 }
 
             }
-            if (playerInventory.hasLongBeam)
-            {
-                bulletInstance.GetComponent<DestroyOnTime>().destroyTime *= 2;
-            }
+            
 
             //Use this code for the Missile whenever it gets implemented!
             if(!playerInventory.getAmmoCheat())
