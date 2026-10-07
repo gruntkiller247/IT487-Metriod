@@ -57,7 +57,7 @@ public class PlayerState : MonoBehaviour
         }
         else
         {
-            Debug.Log("Player Cannot move!");
+            //Debug.Log("Player Cannot move!");
         }
         
     }

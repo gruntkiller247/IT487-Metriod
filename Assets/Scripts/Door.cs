@@ -7,8 +7,6 @@ public class Door : MonoBehaviour
     [SerializeField] bool doorOpen = false;
     [SerializeField] Sprite doorSprite;
 
-    private Sprite doorClosedSprite;
-
     SpriteRenderer sr;
 
     [SerializeField] Collider solidCol;
@@ -19,8 +17,6 @@ public class Door : MonoBehaviour
 
     private bool changingRoom = false;
 
-    [SerializeField] Vector3 directionToMovePlayer = Vector3.right;
-
     private PlayerState ps;
 
     [SerializeField] float movePlayerX = 4f;    //Variables to tell the door where to teleport the player to after the movement scene
@@ -29,10 +25,7 @@ public class Door : MonoBehaviour
     private Collider thePlayerCollider;
 
     private Sprite tempSprite = null;
-
-    //LayerMask lm;
-
-    //[SerializeField] Sprite opened;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
