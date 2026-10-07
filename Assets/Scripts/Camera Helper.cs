@@ -37,6 +37,6 @@ public class CameraHelper : MonoBehaviour
 
     public void OnTriggerExit()
     {
-        Debug.Log("Player has left a room!");
+        //Debug.Log("Player has left a room!");
     }
 }

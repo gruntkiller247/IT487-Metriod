@@ -29,7 +29,7 @@ public class PlayerJump : MonoBehaviour
         if(ps.getPlayerCanMove() == true)
         {
             if(ps.getStanding())
-        {
+            {
                 //Vector3 newVelocity = rigid.linearVelocity;
                 if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {

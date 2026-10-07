@@ -11,11 +11,14 @@ public class PlayerRun : MonoBehaviour
 
     PlayerState ps;
 
+    GameObject player;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rigid = transform.GetComponent<Rigidbody>();
         ps = transform.GetComponentInParent<PlayerState>();
+        player = GameObject.FindGameObjectsWithTag("The Player")[0];
     }
     
     void Start()
@@ -24,13 +27,15 @@ public class PlayerRun : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Vector3 newVelocity = rigid.linearVelocity;
         //Debug.Log("PlayerMove: " + ps.getPlayerCanMove() + "\n");
         
+
         if(ps.getPlayerCanMove() == true)
         {
+            //Debug.Log("CanMove: " + ps.getPlayerCanMove() + "\nVelocity: " + player.GetComponent<Rigidbody>().linearVelocity + "\nPosition: " + player.transform.position);
             //Movement should be based on raw input so we can be more precise with it.
             //This section uses manual acceleration and friction to make the player move closer to original NES Metroid's movement, which quickly gets to top speed and doesn't slide around much at all.
             if (Input.GetAxisRaw("Horizontal") != 0)
@@ -80,7 +85,7 @@ public class PlayerRun : MonoBehaviour
         }
         else
         {
-            rigid.linearVelocity = Vector3.zero;
+            //rigid.linearVelocity = Vector3.zero;
         }
 
        

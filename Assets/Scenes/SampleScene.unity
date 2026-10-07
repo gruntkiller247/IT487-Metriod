@@ -157159,7 +157159,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -186749,7 +186749,8 @@ MonoBehaviour:
   solidCol: {fileID: 0}
   doorOpenTime: 3
   directionToMovePlayer: {x: 1, y: 0, z: 0}
-  doorAnimationTime: 5
+  movePlayerX: 4
+  movePlayerY: 0
 --- !u!1001 &1089344305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202684,7 +202685,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -203899,7 +203900,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -276855,7 +276856,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -277016,7 +277017,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -289742,7 +289743,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -334643,7 +334644,8 @@ MonoBehaviour:
   solidCol: {fileID: 1971708912}
   doorOpenTime: 3
   directionToMovePlayer: {x: 1, y: 0, z: 0}
-  doorAnimationTime: 5
+  movePlayerX: 4
+  movePlayerY: 0
 --- !u!4 &1971744676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -335514,7 +335516,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -354092,7 +354094,8 @@ MonoBehaviour:
   solidCol: {fileID: 0}
   doorOpenTime: 3
   directionToMovePlayer: {x: 1, y: 0, z: 0}
-  doorAnimationTime: 5
+  movePlayerX: 4
+  movePlayerY: 0
 --- !u!4 &2097699503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -361252,7 +361255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3000568168094167655, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71
+      value: 69.6
       objectReference: {fileID: 0}
     - target: {fileID: 3000568168094167655, guid: a162f4dfbb6f7aa4db3ddaff139afea6, type: 3}
       propertyPath: m_LocalPosition.y

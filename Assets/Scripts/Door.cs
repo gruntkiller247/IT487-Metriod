@@ -77,10 +77,12 @@ public class Door : MonoBehaviour
             sr.sprite = doorSprite;
         }
 
-       if (Mathf.Abs(transform.position.x - player.transform.position.x) < 0.1f)
+       if (doorOpen && Mathf.Abs(transform.position.x - player.transform.position.x) < 0.1f)
         {
-            Debug.Log("Player is in position to start the door transition!");
-            StartCoroutine(ChangeRoom());
+            //Debug.Log("Player is in position to start the door transition!");
+
+            if(changingRoom == false)
+                StartCoroutine(ChangeRoom());
         }
 
     }
@@ -153,7 +155,8 @@ public class Door : MonoBehaviour
 
         ps.setPlayerCanMove(true);
         changingRoom = false;
-        Debug.Log("Player should be able to move! ChangeRoom is over!");
+        //Debug.Log("CanMove: " + ps.getPlayerCanMove() + "\nVelocity: " + player.GetComponent<Rigidbody>().linearVelocity + "\nPosition: " + player.transform.position);
+        //Debug.Log("\n");
     }
 
 
@@ -162,7 +165,7 @@ public class Door : MonoBehaviour
         
         GameObject activePlayerState = GameObject.FindGameObjectsWithTag("Player")[0];
         SpriteRenderer pSR = activePlayerState.GetComponent<SpriteRenderer>();
-
+        Rigidbody pRigid = player.GetComponent<Rigidbody>();
         if(tempSprite == null)
         {
             tempSprite = pSR.sprite;
@@ -174,17 +177,21 @@ public class Door : MonoBehaviour
 
         //Camera cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
         //cam.transform.position += directionToMovePlayer;
-        Vector3 postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + movePlayerY,0);
-        player.transform.position = postDoor;
+        Vector3 postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + 0.5f + movePlayerY,0);
+        pRigid.position = postDoor;
+        pRigid.linearVelocity = Vector3.zero;
+        pRigid.angularVelocity = Vector3.zero;
         
         
 
-        yield return null;
+        
 
         //Fix the player!
         pSR.sprite = tempSprite;
         //player.GetComponent<Rigidbody>().isKinematic = true;
 
         //Debug.Log("Player Moving Coroutine over!");
+
+        yield return null;
     }
 }

@@ -55,6 +55,10 @@ public class PlayerState : MonoBehaviour
                 isStanding = true;
             }
         }
+        else
+        {
+            Debug.Log("Player Cannot move!");
+        }
         
     }
 
