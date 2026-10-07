@@ -23,11 +23,7 @@ public class CameraHelper : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Room")
-        {
-            //Debug.Log("Still inside"); 
-            playerCamera.giveRoomColliderToCamera(other);
-        }
+        
         
            
     }
@@ -37,6 +33,7 @@ public class CameraHelper : MonoBehaviour
         if(other.tag == "Room")
         {
             Debug.Log("Entered a new Room trigger!");
+            playerCamera.giveRoomColliderToCamera(other);
         }
     }
 }
