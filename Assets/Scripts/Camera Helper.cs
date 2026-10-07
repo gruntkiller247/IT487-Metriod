@@ -23,9 +23,7 @@ public class CameraHelper : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        
-        
-           
+        //Debug.Log("Player is still within a room!");      
     }
 
     public void OnTriggerEnter(Collider other)
@@ -35,5 +33,10 @@ public class CameraHelper : MonoBehaviour
             Debug.Log("Entered a new Room trigger!");
             playerCamera.giveRoomColliderToCamera(other);
         }
+    }
+
+    public void OnTriggerExit()
+    {
+        Debug.Log("Player has left a room!");
     }
 }

@@ -23,7 +23,8 @@ public class Door : MonoBehaviour
 
     private PlayerState ps;
 
-    [SerializeField] int doorAnimationTime = 2;        //The number of times to run the door transition function. For 4 blocks make it 4!
+    [SerializeField] float movePlayerX = 4f;    //Variables to tell the door where to teleport the player to after the movement scene
+    [SerializeField] float movePlayerY = 0f;
 
     private Collider thePlayerCollider;
 
@@ -142,78 +143,47 @@ public class Door : MonoBehaviour
 
     private IEnumerator ChangeRoom()
     {
-        //Debug.Log("Changing Room!");
-
         changingRoom = true;
         ps.setPlayerCanMove(false);
-        //Debug.Log("PlayerMove: " + ps.getPlayerCanMove());
 
-        yield return StartCoroutine(movePlayerToSpot(1));
+        //Change this to add the camera's movement at some point!
+        yield return StartCoroutine(movePlayerToSpot());
 
 
-        //Debug.Log("Changing Room Over!");
+
         ps.setPlayerCanMove(true);
         changingRoom = false;
         Debug.Log("Player should be able to move! ChangeRoom is over!");
     }
 
-    //This function is dirty and I need to know a better way at some point!
-    //I am afraid to look at the speed!
-    private IEnumerator movePlayerToSpot(int count)
+
+    private IEnumerator movePlayerToSpot()
     {
-        //Need to move the player 5 movement directions over the time given
-        //Do not need to mess with the time and movement atm. Focus on the movement
-
+        
         GameObject activePlayerState = GameObject.FindGameObjectsWithTag("Player")[0];
-        //The above should give either the crouched or standing state of the player's gameobject
-        
-        
-        //Get the child's stuff
-
-        //Error? Might need to change this to check a bool if the player's sprite changes! Such as if this triggers in ball mode!
         SpriteRenderer pSR = activePlayerState.GetComponent<SpriteRenderer>();
+
         if(tempSprite == null)
         {
             tempSprite = pSR.sprite;
         }
         
         pSR.sprite = null;
-        thePlayerCollider = activePlayerState.GetComponentInChildren<Collider>();
-
-        if(thePlayerCollider != null)
-        {
-            thePlayerCollider.enabled = false;
-        }
+        //player.GetComponent<Rigidbody>().isKinematic = false;
 
 
-        //We disable the things in the parent to allow movement through the door
-        player.GetComponent<Rigidbody>().isKinematic = true;
-
-
-        Camera cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
-        player.transform.position += directionToMovePlayer;
+        //Camera cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
+        //cam.transform.position += directionToMovePlayer;
+        Vector3 postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + movePlayerY,0);
+        player.transform.position = postDoor;
         
-        cam.transform.position += directionToMovePlayer;
+        
 
+        yield return null;
 
-        if(count < doorAnimationTime)
-        {
-            StartCoroutine(movePlayerToSpot(++count));
-        }
-        else
-        {
-            yield return null;
-        }
-
-        //Re enable/configer player
+        //Fix the player!
         pSR.sprite = tempSprite;
-        
-        if(thePlayerCollider != null)
-        {
-            thePlayerCollider.enabled = true;
-        }
-
-        player.GetComponent<Rigidbody>().isKinematic = false;
+        //player.GetComponent<Rigidbody>().isKinematic = true;
 
         //Debug.Log("Player Moving Coroutine over!");
     }
