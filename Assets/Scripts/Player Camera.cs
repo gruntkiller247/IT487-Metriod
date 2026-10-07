@@ -9,19 +9,17 @@ public class PlayerCamera : MonoBehaviour
     private bool canMove = true;
     private bool canMoveVeritcal = true;
 
-    [SerializeField] float distanceFromWall = 16f;
-
     private Collider currentRoomCollider;
 
     private  Vector3 roomExtents;
 
-    LayerMask layerMask;
-
     private Camera cam;
+
+    private PlayerState ps;
     
     void Start()
     {
-        layerMask = LayerMask.GetMask("Wall");
+       
 
         if(player == null)
         {
@@ -29,6 +27,8 @@ public class PlayerCamera : MonoBehaviour
         }
 
         cam = GetComponent<Camera>();
+
+        ps = player.GetComponentInParent<PlayerState>();
         
     }
 
@@ -44,7 +44,7 @@ public class PlayerCamera : MonoBehaviour
         float camX = transform.position.x;
         float camY = transform.position.y;
         
-        if(roomExtents == null)
+        if(ps.getPlayerCanMove() == false || roomExtents == null)
         {
             transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
         }

@@ -16,7 +16,12 @@ public class DestroyOnTriggerEnter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Enemy")
+        if(transform.tag == "PlayerWeapon" && other.transform.tag == "Door")
+        {
+            //Destroy(transform.gameObject);
+            other.gameObject.GetComponent<Door>().startDoorOpen();
+        }
+        else if(other.transform.tag == "Enemy")
         {
             if(transform.tag == "PlayerWeapon")
             {

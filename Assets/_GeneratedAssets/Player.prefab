@@ -529,3 +529,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f805e91c2591a489a62963145b8a1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraHelper
+  playerCamera: {fileID: 0}
