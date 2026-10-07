@@ -140,7 +140,7 @@ public class PlayerInventory : MonoBehaviour
         return hasMorphBall;
     }
 
-    private void takeDamage(Collider other)
+    public void takeDamage(Collider other)
     {
         if(!other)
         {
@@ -233,6 +233,11 @@ public class PlayerInventory : MonoBehaviour
     private void setMissileText(int num)
     {
         missileText.text = "MI--"+num;
+    }
+
+    public Transform getPlayerLocation()
+    {
+        return gameObject.transform;
     }
      
 }

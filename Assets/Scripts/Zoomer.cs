@@ -10,7 +10,7 @@ public class Zoomer : MonoBehaviour
     //private Directions localNorth = Directions.south; //Assuming looking down by default
     //private Directions lastMove = Directions.west;
 
-    private bool ignoreObsticale = false;
+    //private bool ignoreObsticale = false;
     
     public Directions lookingDirection = Directions.east;
 

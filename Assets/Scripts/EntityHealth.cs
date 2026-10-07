@@ -60,7 +60,7 @@ public class EntityHealth : MonoBehaviour
 
         if(!other)
         {
-            Debug.Log("Debug Damage!");
+            //Debug.Log("Debug Damage!");
             hp--;
         }
         else
@@ -105,6 +105,18 @@ public class EntityHealth : MonoBehaviour
             StartCoroutine(invul(invulTime));
         }
     }
+
+    /*
+        Call when you need something to die without it taking damage from something
+        Currently in use from the Skree to die when it collides with the ground
+    */
+    public void kill()
+    {
+        hp = 0;
+        takeDamage(null);
+    }
+
+
 
     private IEnumerator invul(float waitTime)
     {

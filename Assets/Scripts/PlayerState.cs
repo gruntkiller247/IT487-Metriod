@@ -9,6 +9,8 @@ public class PlayerState : MonoBehaviour
     PlayerRun playerRun;
 
     bool isStanding = true;
+
+    private bool playerCanMove = true;
     
     void Awake()
     {
@@ -26,29 +28,38 @@ public class PlayerState : MonoBehaviour
     void Update()
     {
         bool isDown = false;
-        if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+
+        if(playerCanMove == true)
         {
-            //Debug.Log("Pressing Down!");
-            isDown = true;
+            if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                //Debug.Log("Pressing Down!");
+                isDown = true;
+            }
+            else
+            {
+                isDown = false;
+            }
+
+            if(isStanding && playerRun.isGrounded() && isDown && playerInventory.HasMorphBall())
+            {
+                standing.SetActive(false);
+                morphed.SetActive(true);
+                isStanding = false;
+            }
+
+            if(!isStanding && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            {
+                standing.SetActive(true);
+                morphed.SetActive(false);
+                isStanding = true;
+            }
         }
         else
         {
-            isDown = false;
+            //Debug.Log("Player Cannot move!");
         }
-
-        if(isStanding && playerRun.isGrounded() && isDown && playerInventory.HasMorphBall())
-        {
-            standing.SetActive(false);
-            morphed.SetActive(true);
-            isStanding = false;
-        }
-
-        if(!isStanding && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
-        {
-            standing.SetActive(true);
-            morphed.SetActive(false);
-            isStanding = true;
-        }
+        
     }
 
     public bool getStanding()
@@ -70,5 +81,15 @@ public class PlayerState : MonoBehaviour
             standing.SetActive(true);
             morphed.SetActive(false);
         }
+    }
+
+    public void setPlayerCanMove(bool inBool)
+    {
+        playerCanMove = inBool;
+    }
+
+    public bool getPlayerCanMove()
+    {
+        return playerCanMove;   
     }
 }

@@ -12,6 +12,11 @@ TagManager:
   - HpPickUp
   - MisslePickUp
   - LongBeam
+  - Enemy Bullet
+  - LavaBlock
+  - Room
+  - Door
+  - The Player
   layers:
   - Default
   - TransparentFX
@@ -24,7 +29,7 @@ TagManager:
   - Player
   - Bullet
   - Zoomer
-  - 
+  - Room
   - 
   - 
   - 

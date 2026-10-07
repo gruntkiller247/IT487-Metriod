@@ -16,9 +16,10 @@ public class PlayerDirection : MonoBehaviour
     public Sprite invulSpriteUpward;
     private bool defaultSprite = true;
 
+    PlayerState ps;
     void Awake()
     {
-        
+        ps = transform.GetComponentInParent<PlayerState>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,50 +35,55 @@ public class PlayerDirection : MonoBehaviour
 
         float horizontalAxis = Input.GetAxis("Horizontal");
 
-        if(facingRight && horizontalAxis < 0)
+        if(ps.getPlayerCanMove() == true)
         {
-            facingRight = false;
-            transform.localScale = new Vector3(-1,1,1);
-           
-        }
-        else if(!facingRight && horizontalAxis > 0)
-        {
-            facingRight = true;
-            transform.localScale = new Vector3(1,1,1);
-           
-        }
-
-        bool holdingUp = false;
-
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            holdingUp = true;
-        }
-        else
-        {
-            holdingUp = false;
-        }
-
-        if(lookingUp && !holdingUp)
-        {
-            lookingUp = false;
+            if(facingRight && horizontalAxis < 0)
+            {
+                facingRight = false;
+                transform.localScale = new Vector3(-1,1,1);
             
-            if(defaultSprite)
-                spriteRenderer.sprite = spriteLookingForward;
+            }
+            else if(!facingRight && horizontalAxis > 0)
+            {
+                facingRight = true;
+                transform.localScale = new Vector3(1,1,1);
+            
+            }
+
+            bool holdingUp = false;
+
+            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                holdingUp = true;
+            }
             else
-                spriteRenderer.sprite = invulSpriteForward;
+            {
+                holdingUp = false;
+            }
 
-            
+            if(lookingUp && !holdingUp)
+            {
+                lookingUp = false;
+                
+                if(defaultSprite)
+                    spriteRenderer.sprite = spriteLookingForward;
+                else
+                    spriteRenderer.sprite = invulSpriteForward;
+
+                
+            }
+            else if(!lookingUp && holdingUp)
+            {
+                lookingUp = true;
+                
+                if(defaultSprite)
+                    spriteRenderer.sprite = spriteLookingUpward;
+                else
+                    spriteRenderer.sprite = invulSpriteUpward;
+            }
         }
-        else if(!lookingUp && holdingUp)
-        {
-            lookingUp = true;
-            
-            if(defaultSprite)
-                spriteRenderer.sprite = spriteLookingUpward;
-            else
-                spriteRenderer.sprite = invulSpriteUpward;
-        }
+
+        
         
 
     }

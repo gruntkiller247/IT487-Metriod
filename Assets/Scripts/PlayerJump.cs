@@ -26,41 +26,44 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(ps.getStanding())
+        if(ps.getPlayerCanMove() == true)
         {
+            if(ps.getStanding())
+            {
                 //Vector3 newVelocity = rigid.linearVelocity;
-            if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
-            {
-                ps.morphBody(false);
-                spinJump = false;
-            }
-
-            if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
-            {
-                Vector3 velocity = rigid.linearVelocity;
-                velocity.y = jumpMax;
-                rigid.linearVelocity = velocity;
-                if (Input.GetAxisRaw("Horizontal") != 0)
+                if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
-                    spinJump = true;
-                    //The below doesn't work because of how these weird child objects are set up. I will be controlling this through animations in the future. -Ethelyn
-                    //ps.morphBody(true);
+                    ps.morphBody(false);
+                    spinJump = false;
                 }
 
-                
-            }
-
-            if (Input.GetKeyUp(KeyCode.X))
-            {    
-                if (rigid.linearVelocity.y > 0)
+                if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
                 {
                     Vector3 velocity = rigid.linearVelocity;
-                    velocity.y *= 0.5f;
+                    velocity.y = jumpMax;
                     rigid.linearVelocity = velocity;
+                    if (Input.GetAxisRaw("Horizontal") != 0)
+                    {
+                        spinJump = true;
+                        //The below doesn't work because of how these weird child objects are set up. I will be controlling this through animations in the future. -Ethelyn
+                        //ps.morphBody(true);
+                    }
+
+                    
+                }
+
+                if (Input.GetKeyUp(KeyCode.X))
+                {    
+                    if (rigid.linearVelocity.y > 0)
+                    {
+                        Vector3 velocity = rigid.linearVelocity;
+                        velocity.y *= 0.5f;
+                        rigid.linearVelocity = velocity;
+                    }
                 }
             }
         }
+        
 
         
 
