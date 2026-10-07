@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Animations;
+using System;
 
 public class Door : MonoBehaviour
 {
@@ -25,7 +26,9 @@ public class Door : MonoBehaviour
     private Collider thePlayerCollider;
 
     private Sprite tempSprite = null;
-    
+
+    [SerializeField] PlayerCamera playerCamera;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,6 +56,8 @@ public class Door : MonoBehaviour
         {
             doorSprite = sr.sprite;
         }
+
+
 
         //The width of 1 block is 6 units. need to do this to acutally move 1 block per second in the transition
         //directionToMovePlayer *= 6; 

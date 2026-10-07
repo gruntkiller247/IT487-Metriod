@@ -57183,6 +57183,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 1925985778}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &311881312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1786185557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &311886298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164577,7 +164582,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1611321586}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!4 &963162554 stripped
 Transform:
@@ -170321,6 +170329,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 1786185557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1000763156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311881312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
 --- !u!1001 &1001009999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185906,6 +185932,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+--- !u!1 &1083286238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1160601491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1083286241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083286238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
 --- !u!4 &1083720446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -197507,7 +197556,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1083286241}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!4 &1160903326 stripped
 Transform:
@@ -272907,6 +272959,29 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21c4b1ce2a73d7242994b567bceef6c4, type: 3}
+--- !u!1 &1611321583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 963086827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1611321586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611321583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
 --- !u!4 &1611567904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -303771,7 +303846,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1000763156}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!4 &1786311532 stripped
 Transform:
