@@ -16,6 +16,8 @@ public class PlayerCamera : MonoBehaviour
     private Camera cam;
 
     private PlayerState ps;
+
+    private bool colliderUpated = false;
     
     void Start()
     {
@@ -43,63 +45,74 @@ public class PlayerCamera : MonoBehaviour
         Transform playerLocation = player.transform;
         float camX = transform.position.x;
         float camY = transform.position.y;
-        
-        if(ps.getPlayerCanMove() == false || roomExtents == null)
+
+        if(colliderUpated == true)
         {
+            Debug.Log("Collider updated!");
+            colliderUpated = false;
             transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
         }
         else
         {
-
-            float cameraHalfWidth = cam.orthographicSize * cam.aspect;
-
-
-            if (playerLocation.position.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x)
+            if(ps.getPlayerCanMove() == false || roomExtents == null)
             {
-                //Debug.Log("To close to the Right Edge!");
-                canMove = false;
-            }
-            else if (playerLocation.position.x - cameraHalfWidth <= currentRoomCollider.bounds.min.x)
-            {
-                //Debug.Log("To close to the Left Edge!");
-                canMove = false;
+                transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
             }
             else
             {
-                canMove = true;
+
+                float cameraHalfWidth = cam.orthographicSize * cam.aspect;
+
+
+                if (playerLocation.position.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x)
+                {
+                    //Debug.Log("To close to the Right Edge!");
+                    canMove = false;
+                }
+                else if (playerLocation.position.x - cameraHalfWidth <= currentRoomCollider.bounds.min.x)
+                {
+                    //Debug.Log("To close to the Left Edge!");
+                    canMove = false;
+                }
+                else
+                {
+                    canMove = true;
+                }
+                
             }
             
-        }
-        
-        float cameraHalfHeight = cam.orthographicSize;
+            float cameraHalfHeight = cam.orthographicSize;
 
-        if(player.transform.position.y + cameraHalfHeight >= currentRoomCollider.bounds.max.y)
-        {
-           
-            canMoveVeritcal = false;
-        }
-        else if (player.transform.position.y - cameraHalfHeight <= currentRoomCollider.bounds.min.y)
-        {
+            if(player.transform.position.y + cameraHalfHeight >= currentRoomCollider.bounds.max.y)
+            {
             
-            canMoveVeritcal = false;
-        }
-        else
-        {
-            canMoveVeritcal = true;
-        }
+                canMoveVeritcal = false;
+            }
+            else if (player.transform.position.y - cameraHalfHeight <= currentRoomCollider.bounds.min.y)
+            {
+                
+                canMoveVeritcal = false;
+            }
+            else
+            {
+                canMoveVeritcal = true;
+            }
 
 
-        if(canMoveVeritcal)
-        {
-            camY = playerLocation.position.y;
-        }
+            if(canMoveVeritcal)
+            {
+                camY = playerLocation.position.y;
+            }
+            
+            if(canMove)
+            {
+                camX = playerLocation.position.x;
+            }
+            
+            transform.position = new Vector3(camX, camY, -10);
+            }
         
-        if(canMove)
-        {
-            camX = playerLocation.position.x;
-        }
         
-        transform.position = new Vector3(camX, camY, -10);
     }
 
     public void giveRoomColliderToCamera(Collider other)
@@ -109,6 +122,7 @@ public class PlayerCamera : MonoBehaviour
         
         roomExtents = other.bounds.extents;
         currentRoomCollider = other;
+        colliderUpated = true;
         
         //Debug.Log("The room's extents are: " + extents);
     }

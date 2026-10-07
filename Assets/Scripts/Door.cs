@@ -27,7 +27,9 @@ public class Door : MonoBehaviour
 
     private Sprite tempSprite = null;
 
-    [SerializeField] PlayerCamera playerCamera;
+    [SerializeField] Camera cam;
+
+    [SerializeField] float timeForCameraToMove = 4f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,7 +59,7 @@ public class Door : MonoBehaviour
             doorSprite = sr.sprite;
         }
 
-
+        cam = Camera.main;
 
         //The width of 1 block is 6 units. need to do this to acutally move 1 block per second in the transition
         //directionToMovePlayer *= 6; 
@@ -157,6 +159,13 @@ public class Door : MonoBehaviour
         //Debug.Log("\n");
     }
 
+    private IEnumerator moveCameraToSpot()
+    {
+        Vector3 postDoor = new Vector3(cam.transform.position.x + movePlayerX,cam.transform.position.y + movePlayerY,0);
+
+        
+        yield return null;
+    }
 
     private IEnumerator movePlayerToSpot()
     {
@@ -180,12 +189,13 @@ public class Door : MonoBehaviour
         pRigid.linearVelocity = Vector3.zero;
         pRigid.angularVelocity = Vector3.zero;
         
-        
+        pSR.sprite = tempSprite;
+        yield return StartCoroutine(moveCameraToSpot());
 
         
 
         //Fix the player!
-        pSR.sprite = tempSprite;
+        
         //player.GetComponent<Rigidbody>().isKinematic = true;
 
         //Debug.Log("Player Moving Coroutine over!");
