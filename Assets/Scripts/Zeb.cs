@@ -24,6 +24,7 @@ public class Zeb : MonoBehaviour
     private Vector3 playerDirection;
 
     private bool directionFound = false;
+    SpriteRenderer sprite;
 
     void Awake()
     {
@@ -33,6 +34,8 @@ public class Zeb : MonoBehaviour
         {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
+        sprite.flipX = (player.transform.position.x > transform.position.x);
+        sprite = GetComponent<SpriteRenderer>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -89,6 +92,7 @@ public class Zeb : MonoBehaviour
                 playerDirection = Vector3.right;
             }
             directionFound = true;
+            sprite.flipX = (player.transform.position.x > transform.position.x);
         }
         else
         {
@@ -110,6 +114,7 @@ public class Zeb : MonoBehaviour
                 GetComponent<EntityHealth>().kill();
             }
         }
+        
     }
 
     private IEnumerator moveUp()

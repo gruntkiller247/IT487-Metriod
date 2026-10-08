@@ -166,7 +166,7 @@ TextureImporter:
         width: 18
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,6 +175,72 @@ TextureImporter:
       bones: []
       spriteID: 4ae85013b9be2ee4b98a92e4e260b2fa
       internalID: 208761238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_enemies_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 263
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb129d8d6c472744a281e8af961ae8f
+      internalID: 1484891767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_enemies_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 283
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c522e006a750ba44091d6d3c04adbb85
+      internalID: -1433877578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_enemies_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 261
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d62e1a8b4ccf2a3408a9084ec4284eae
+      internalID: 2025268889
       vertices: []
       indices: 
       edges: []
@@ -197,6 +263,9 @@ TextureImporter:
     nameFileIdTable:
       metroid_enemies_sheet_0: 122579120
       metroid_enemies_sheet_1: 208761238
+      metroid_enemies_sheet_2: 1484891767
+      metroid_enemies_sheet_3: -1433877578
+      metroid_enemies_sheet_4: 2025268889
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
