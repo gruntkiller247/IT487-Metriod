@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3051617cd71faa46bd298934b5b552f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skree
-  distanceFromPlayer: 5
+  distanceFromPlayer: 2
   moveSpeedDown: 1
   moveSpeedSideways: 0.5
   explodeTime: 1

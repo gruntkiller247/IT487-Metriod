@@ -39,6 +39,8 @@ public class PlayerJump : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
                 {
+                    PlayerSound.instance.PlaySound(PlayerSound.instance.jump);
+
                     Vector3 velocity = rigid.linearVelocity;
                     velocity.y = jumpMax;
                     rigid.linearVelocity = velocity;

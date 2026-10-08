@@ -175,6 +175,7 @@ public class PlayerInventory : MonoBehaviour
             //Change skin
             
             StartCoroutine(invul(invulTime));
+            PlayerSound.instance.PlaySound(PlayerSound.instance.hurt);
         }
     }
 

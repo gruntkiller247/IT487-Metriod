@@ -303064,7 +303064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8223911706667285066, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: bulletMoveSpeed
