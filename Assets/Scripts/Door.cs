@@ -31,6 +31,9 @@ public class Door : MonoBehaviour
 
     [SerializeField] float timeForCameraToMove = 4f;
 
+
+    private Vector3 postDoor;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -81,10 +84,40 @@ public class Door : MonoBehaviour
         {
             //Debug.Log("Player is in position to start the door transition!");
 
-            if(changingRoom == false)
-                StartCoroutine(ChangeRoom());
+            if(changingRoom == false && ps.getPlayerCanMove())
+                StartCoroutine(StartChangeRoom());
         }
 
+    }
+
+    private IEnumerator StartChangeRoom()
+    {
+        changingRoom = true;
+        ps.setPlayerCanMove(false);
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        PlayerCamera.instance.roomBound = false;
+        PlayerWeapon.canShoot = false;
+        
+        foreach (Collider box in player.GetComponentsInChildren<Collider>())
+        {
+            box.enabled = false;
+        }
+        Coroutine changeRoom = StartCoroutine(ChangeRoom());
+
+        yield return new WaitForSeconds(2);
+        StopCoroutine(changeRoom);
+
+        changingRoom = false;
+        ps.setPlayerCanMove(true);
+        player.GetComponent<Rigidbody>().isKinematic = false;
+        PlayerCamera.instance.roomBound = true;
+        PlayerWeapon.canShoot = true;
+        
+        foreach (Collider box in player.GetComponentsInChildren<Collider>())
+        {
+            box.enabled = true;
+        }
+        yield return null;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -98,6 +131,7 @@ public class Door : MonoBehaviour
             //Debug.Log("Player Bullet!");
 
             startDoorOpen();
+            Destroy(other.gameObject);
             
         }
     }
@@ -105,7 +139,12 @@ public class Door : MonoBehaviour
     public void startDoorOpen()
     {
         if(doorOpen == false)
+        {
             StartCoroutine(DoorOpen());
+            
+        }
+            
+
     }
 
     private IEnumerator DoorOpen()
@@ -145,52 +184,50 @@ public class Door : MonoBehaviour
 
     private IEnumerator ChangeRoom()
     {
-        changingRoom = true;
-        ps.setPlayerCanMove(false);
-
+        
+        postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + movePlayerY,0);
+        while (true)
+        {
+            movePlayerToSpot();
+            moveCameraToSpot();
+            yield return new WaitForSeconds(1 / 60);
+        }
         //Change this to add the camera's movement at some point!
-        yield return StartCoroutine(movePlayerToSpot());
+        
 
 
-
-        ps.setPlayerCanMove(true);
-        changingRoom = false;
+        
         //Debug.Log("CanMove: " + ps.getPlayerCanMove() + "\nVelocity: " + player.GetComponent<Rigidbody>().linearVelocity + "\nPosition: " + player.transform.position);
         //Debug.Log("\n");
     }
 
-    private IEnumerator moveCameraToSpot()
+    private void moveCameraToSpot()
     {
         Vector3 postDoor = new Vector3(cam.transform.position.x + movePlayerX,cam.transform.position.y + movePlayerY,0);
-
-        
-        yield return null;
     }
 
-    private IEnumerator movePlayerToSpot()
+    private void movePlayerToSpot()
     {
         
         GameObject activePlayerState = GameObject.FindGameObjectsWithTag("Player")[0];
         SpriteRenderer pSR = activePlayerState.GetComponent<SpriteRenderer>();
         Rigidbody pRigid = player.GetComponent<Rigidbody>();
-        if(tempSprite == null)
+        /*if(tempSprite == null)
         {
             tempSprite = pSR.sprite;
         }
         
-        pSR.sprite = null;
+        pSR.sprite = null;*/
         //player.GetComponent<Rigidbody>().isKinematic = false;
 
 
         //Camera cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
         //cam.transform.position += directionToMovePlayer;
-        Vector3 postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + 0.5f + movePlayerY,0);
-        pRigid.position = postDoor;
-        pRigid.linearVelocity = Vector3.zero;
-        pRigid.angularVelocity = Vector3.zero;
+        Debug.Log("Moving player to this pos");
+        player.transform.position = Vector3.MoveTowards(player.transform.position, postDoor, 0.02f);
         
-        pSR.sprite = tempSprite;
-        yield return StartCoroutine(moveCameraToSpot());
+        
+        //pSR.sprite = tempSprite;
 
         
 
@@ -199,7 +236,5 @@ public class Door : MonoBehaviour
         //player.GetComponent<Rigidbody>().isKinematic = true;
 
         //Debug.Log("Player Moving Coroutine over!");
-
-        yield return null;
     }
 }

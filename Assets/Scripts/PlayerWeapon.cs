@@ -16,7 +16,8 @@ public class PlayerWeapon : MonoBehaviour
     public float firingSpeed = 10f;
 
     public bool missileSelect = false;
-    
+
+    public static bool canShoot = true;
 
     void Awake()
     {
@@ -47,7 +48,9 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
-        if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))
+        if (canShoot)
+        {
+            if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))
         {
             GameObject bulletInstance;
             //Can the player fire?
@@ -108,6 +111,8 @@ public class PlayerWeapon : MonoBehaviour
             
            
         }
+        }
+        
 
     }
 }

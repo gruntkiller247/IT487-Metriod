@@ -18,10 +18,23 @@ public class PlayerCamera : MonoBehaviour
     private PlayerState ps;
 
     private bool colliderUpated = false;
+
+    public bool roomBound = true;
+
+    public static PlayerCamera instance;
     
     void Start()
     {
        
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+        }
 
         if(player == null)
         {
@@ -45,72 +58,86 @@ public class PlayerCamera : MonoBehaviour
         Transform playerLocation = player.transform;
         float camX = transform.position.x;
         float camY = transform.position.y;
-
-        if(colliderUpated == true)
+        if (roomBound == true)
         {
-            Debug.Log("Collider updated!");
-            colliderUpated = false;
-            transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
-        }
-        else
-        {
-            if(ps.getPlayerCanMove() == false || roomExtents == null)
+            if (colliderUpated == true)
             {
-                transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
-            }
-            else
-            {
-
-                float cameraHalfWidth = cam.orthographicSize * cam.aspect;
-
-
-                if (playerLocation.position.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x)
+                Debug.Log("Collider updated!");
+                colliderUpated = false;
+                if (currentRoomCollider.bounds.extents.x < (cam.orthographicSize * cam.aspect))
                 {
-                    //Debug.Log("To close to the Right Edge!");
-                    canMove = false;
-                }
-                else if (playerLocation.position.x - cameraHalfWidth <= currentRoomCollider.bounds.min.x)
-                {
-                    //Debug.Log("To close to the Left Edge!");
-                    canMove = false;
+                    transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
                 }
                 else
                 {
-                    canMove = true;
+                    transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
                 }
-                
-            }
-            
-            float cameraHalfHeight = cam.orthographicSize;
 
-            if(player.transform.position.y + cameraHalfHeight >= currentRoomCollider.bounds.max.y)
-            {
-            
-                canMoveVeritcal = false;
-            }
-            else if (player.transform.position.y - cameraHalfHeight <= currentRoomCollider.bounds.min.y)
-            {
-                
-                canMoveVeritcal = false;
             }
             else
             {
-                canMoveVeritcal = true;
-            }
+                if (ps.getPlayerCanMove() == false || roomExtents == null)
+                {
+                    transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
+                }
+                else
+                {
+
+                    float cameraHalfWidth = cam.orthographicSize * cam.aspect;
 
 
-            if(canMoveVeritcal)
-            {
-                camY = playerLocation.position.y;
+                    if (playerLocation.position.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x)
+                    {
+                        //Debug.Log("To close to the Right Edge!");
+                        canMove = false;
+                    }
+                    else if (playerLocation.position.x - cameraHalfWidth <= currentRoomCollider.bounds.min.x)
+                    {
+                        //Debug.Log("To close to the Left Edge!");
+                        canMove = false;
+                    }
+                    else
+                    {
+                        canMove = true;
+                    }
+
+                }
+
+                float cameraHalfHeight = cam.orthographicSize;
+
+                if (player.transform.position.y + cameraHalfHeight >= currentRoomCollider.bounds.max.y)
+                {
+
+                    canMoveVeritcal = false;
+                }
+                else if (player.transform.position.y - cameraHalfHeight <= currentRoomCollider.bounds.min.y)
+                {
+
+                    canMoveVeritcal = false;
+                }
+                else
+                {
+                    canMoveVeritcal = true;
+                }
+
+
+                if (canMoveVeritcal)
+                {
+                    camY = playerLocation.position.y;
+                }
+
+                if (canMove)
+                {
+                    camX = playerLocation.position.x;
+                }
+
+                transform.position = new Vector3(camX, camY, -10);
             }
-            
-            if(canMove)
-            {
-                camX = playerLocation.position.x;
-            }
-            
-            transform.position = new Vector3(camX, camY, -10);
-            }
+        }
+        else
+        {
+            transform.position = new Vector3(playerLocation.position.x, playerLocation.position.y, -10);
+        }
         
         
     }
