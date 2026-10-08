@@ -31,6 +31,7 @@ public class Door : MonoBehaviour
 
     [SerializeField] float timeForCameraToMove = 4f;
 
+    public bool isMissileDoor = false;
 
     private Vector3 postDoor;
 
@@ -129,9 +130,20 @@ public class Door : MonoBehaviour
             //Change the state to open door
             //Do this with a coroutine for some amount of time
             //Debug.Log("Player Bullet!");
-
-            startDoorOpen();
-            Destroy(other.gameObject);
+            if (isMissileDoor)
+            {
+                if (other.gameObject.GetComponent<Missile>())
+                {
+                    startDoorOpen();
+                }
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                startDoorOpen();
+                Destroy(other.gameObject);
+            }
+            
             
         }
     }

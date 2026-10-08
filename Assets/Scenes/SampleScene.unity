@@ -12485,7 +12485,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 771664467}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!1001 &71671388
 PrefabInstance:
@@ -60794,6 +60797,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &339938316 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -68290,6 +68294,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+--- !u!1 &386585708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1514106760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &386976255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -72981,6 +72990,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 615840120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &422932455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 71068003}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &422971404 stripped
 Transform:
@@ -88869,6 +88883,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 1514106760}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &520837271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386585708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &520936629 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -109378,6 +109413,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+--- !u!1 &622649192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1961649529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &623714434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114509,6 +114549,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &650654062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -126288,7 +126329,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1377756759}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!1001 &736604353
 PrefabInstance:
@@ -132534,6 +132578,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 71068003}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &771664467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422932455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: 4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &771899724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -136910,6 +136975,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &794125789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140040,6 +140106,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &817878143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143330,6 +143397,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &833864989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145950,6 +146018,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &850193251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -148500,6 +148569,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &866999853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -160740,6 +160810,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &938835922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -168509,6 +168580,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+--- !u!1 &985521979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1035468012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &985521982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985521979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: 4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &985972417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -170804,6 +170901,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1001009999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172099,6 +172197,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1009297334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177427,7 +177526,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 985521982}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!4 &1035652390 stripped
 Transform:
@@ -181444,6 +181546,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1061125157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186475,6 +186578,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1083720446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -187345,6 +187449,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1089344305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189106,6 +189211,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1102876316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194488,6 +194594,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1138351594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225179,6 +225286,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1304363312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233318,6 +233426,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1354965651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236178,6 +236287,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 359134729}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1377756756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 736348112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1377756759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377756756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &1377792489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -237108,6 +237243,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1383730381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247956,6 +248092,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1450132769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254466,6 +254603,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1497080814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -256858,6 +256996,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1511596363 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -257466,7 +257605,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 520837271}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!4 &1514297505 stripped
 Transform:
@@ -263168,6 +263310,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1546827690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -267228,6 +267371,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1571507604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -267813,6 +267957,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1576381152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -273989,6 +274134,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1611567904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -295877,6 +296023,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+--- !u!1 &1729758839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+  m_PrefabInstance: {fileID: 1854034063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1729758842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729758839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: -4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &1730021043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -302252,6 +302424,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1769656798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -305679,6 +305852,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1788851239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -308624,6 +308798,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1805150868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -315219,6 +315394,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1842511273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -317342,7 +317518,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1729758842}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!1001 &1854209250
 PrefabInstance:
@@ -318879,6 +319058,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1862766134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -319044,6 +319224,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1 &1864184599 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1514771553247255539, guid: 6269d1522b85c334f8aa541bc69a2ad3, type: 3}
@@ -321428,6 +321609,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1877219749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -322868,6 +323050,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1887585010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -324571,6 +324754,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1896580342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -324761,6 +324945,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &1898555344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327302,6 +327487,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1914381570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -328563,6 +328749,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
   m_PrefabInstance: {fileID: 1961649529}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1921455636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622649192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710aa6149d7a3514484ec047fa4b5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  doorOpen: 0
+  doorSprite: {fileID: 0}
+  solidCol: {fileID: 0}
+  doorOpenTime: 3
+  movePlayerX: 4
+  movePlayerY: 0
+  cam: {fileID: 0}
+  timeForCameraToMove: 4
+  isMissileDoor: 1
 --- !u!4 &1921517790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -334392,7 +334599,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7483744193303401763, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1921455636}
   m_SourcePrefab: {fileID: 100100000, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
 --- !u!1001 &1961892314
 PrefabInstance:
@@ -336114,6 +336324,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &1971744676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -344712,6 +344923,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &2025968239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -355417,6 +355629,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &2096056138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355637,6 +355850,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!4 &2097699503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1993730404511306876, guid: f79b5ad560a1f9f4688fa379f2c71e44, type: 3}
@@ -358907,6 +359121,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &2123772048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360242,6 +360457,7 @@ MonoBehaviour:
   movePlayerY: 0
   cam: {fileID: 0}
   timeForCameraToMove: 4
+  isMissileDoor: 0
 --- !u!1001 &2130384190
 PrefabInstance:
   m_ObjectHideFlags: 0
