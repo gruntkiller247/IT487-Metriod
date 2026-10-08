@@ -32,6 +32,8 @@ public class PlayerInventory : MonoBehaviour
 
     private PlayerDirection pd;
 
+
+
     void Awake()
     {
         pd = GetComponentInParent<PlayerDirection>();
@@ -103,16 +105,21 @@ public class PlayerInventory : MonoBehaviour
         {
             Destroy(other.GameObject());
             hasMorphBall = !hasMorphBall;
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
         }
         else if (other.tag == "LongBeam")
         {
             Destroy(other.GameObject());
             hasLongBeam = true;
+            
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
         }
         else if (other.tag == "MissileUpgrade")
         {
             Destroy(other.GameObject());
             hasMissiles = true;
+            
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
         }
         else if(other.tag == "Enemy")
         {
@@ -132,10 +139,14 @@ public class PlayerInventory : MonoBehaviour
             //Debug.Log(other.GetComponent<PickupInventory>().getHp());
             hp += other.GetComponent<PickupInventory>().getHp();
             setHpText();   
+            
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItem);
         }
         else if(other.tag == "MisslePickUp")
         {
             ammo += other.GetComponent<PickupInventory>().getMissiles();
+            
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItem);
             setMissileText();
         }
     }

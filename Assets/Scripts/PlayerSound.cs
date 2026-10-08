@@ -9,6 +9,8 @@ public class PlayerSound : MonoBehaviour
 
     public AudioClip jump;
     public AudioClip hurt;
+    public AudioClip getItem;
+    public AudioClip getItemBig;
     void Start()
     {
         instance = this;
