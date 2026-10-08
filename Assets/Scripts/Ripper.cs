@@ -32,16 +32,17 @@ public class Ripper : MonoBehaviour
         }
         else
         {
-            if(hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player")
             {
                 move();
             }
-            else if(hit.collider.tag == "Wall")
+            else if (hit.collider.tag == "Wall" || (hit.collider.tag == "Door"))
             {
                 if(moveDirection == Vector3.right)
                     moveDirection = Vector3.left;
                 else
                     moveDirection = Vector3.right;
+                GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
             }
         }
     }

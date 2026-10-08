@@ -58,11 +58,27 @@ public class Zoomer : MonoBehaviour
         UnityEngine.Vector3 dir = GetForwardDirection();
         RaycastHit hit;
         turnTimer -= Time.fixedDeltaTime;
-        
+
 
         //Debug.DrawLine(col.bounds.center,dir+col.bounds.center,Color.green,0.01f);   //In front
         //Debug.DrawLine(col.bounds.center,col.bounds.center + GetForwardDirection(getFaceRight()),Color.red, 0.01f); //Beneath me
-
+        switch(lookingDirection)
+        {
+            case Directions.north:
+                transform.eulerAngles = new UnityEngine.Vector3(0, 0, 90);
+                break;
+            case Directions.south:
+                transform.eulerAngles = new UnityEngine.Vector3(0, 0, 270);
+                break;
+            case Directions.east:
+                transform.eulerAngles = new UnityEngine.Vector3(0, 0, 0);
+                break;
+            case Directions.west:
+                transform.eulerAngles = new UnityEngine.Vector3(0, 0, 180);
+                break;
+            default:
+                break;
+        }
         //Shoot forward. Wall or no Wall?
         if(Physics.Raycast(col.bounds.center, dir ,out hit,0.5f)) 
         {
