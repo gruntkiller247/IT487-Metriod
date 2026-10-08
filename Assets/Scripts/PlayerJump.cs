@@ -32,12 +32,21 @@ public class PlayerJump : MonoBehaviour
         {
             if(ps.getStanding())
             {
+                
                 //Vector3 newVelocity = rigid.linearVelocity;
                 if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
                     ps.morphBody(false);
                     spinJump = false;
                 }
+
+                if (isJumping && IsGrounded() && rigid.linearVelocity.y <= 0)
+                {
+                    ps.morphBody(false);
+                    isJumping = false;
+                }
+
+                
 
                 if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
                 {

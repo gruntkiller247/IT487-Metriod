@@ -8,7 +8,8 @@ public class Reo : MonoBehaviour
     {
         idle,
         drop,
-        jump
+        jump,
+        wander
     }
 
     public float moveSpeed = 1f;
@@ -58,6 +59,8 @@ public class Reo : MonoBehaviour
 
         think();
 
+        //Debug.Log("JUmping?: " + pj.IsJumping());
+
         switch(monState)
         {
             case State.idle:
@@ -73,6 +76,10 @@ public class Reo : MonoBehaviour
 
             case State.jump:
                 moveUp();
+                break;
+
+            case State.wander:
+                monState = State.jump;
                 break;
 
             default:
@@ -117,13 +124,7 @@ public class Reo : MonoBehaviour
         {
             //Go until collide with ceiling. State = idle. Velocity = 0
             
-            if(Physics.Raycast(transform.position,Vector3.up,out hit, 1f))
-            {
-                Debug.Log("I hit the roof!");
-                monState = State.idle;
-                rigid.linearVelocity = Vector3.zero;
-                rigid.angularVelocity = Vector3.zero;
-            }
+
            
 
         }
@@ -132,7 +133,16 @@ public class Reo : MonoBehaviour
     private void moveDown()
     {
         Vector3 movement;
+        RaycastHit hit;
 
+        if(Physics.Raycast(transform.position,Vector3.down,out hit, 1f))
+        {
+                Debug.Log("I hit the floor!");
+                monState = State.wander;
+                rigid.linearVelocity = Vector3.zero;
+                rigid.angularVelocity = Vector3.zero;
+                return ;
+        }
 
 
         if(transform.position.x - player.transform.position.x > 0)
@@ -156,7 +166,9 @@ public class Reo : MonoBehaviour
         movement = Vector3.down * moveSpeedDown * Time.fixedDeltaTime;
         rigid.Move(rigid.position + movement, rigid.rotation);
 
-        moveSpeed--;
+
+        if(moveSpeedDown > 1)
+            moveSpeedDown--;
 
         //yield return null;//new WaitForSeconds(waitTime);
     }
@@ -164,6 +176,17 @@ public class Reo : MonoBehaviour
     private void moveUp()
     {
         Vector3 movement;
+        RaycastHit hit;
+
+        if(Physics.Raycast(transform.position,Vector3.up,out hit, 1f))
+        {
+                Debug.Log("I hit the roof!");
+                monState = State.idle;
+                rigid.linearVelocity = Vector3.zero;
+                rigid.angularVelocity = Vector3.zero;
+                return ;
+        }
+        Debug.Log("I sjould be moving up");
         movement = Vector3.up * moveSpeed * Time.fixedDeltaTime;
         rigid.Move(rigid.position + movement, rigid.rotation);
         //yield return null;//new WaitForSeconds(waitTime);
