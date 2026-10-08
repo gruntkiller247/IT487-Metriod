@@ -9,6 +9,8 @@ public class PlayerJump : MonoBehaviour
 
     bool spinJump = false;
 
+    private bool isJumping = false;
+
     PlayerState ps;
 
     void Awake()
@@ -42,6 +44,8 @@ public class PlayerJump : MonoBehaviour
                     Vector3 velocity = rigid.linearVelocity;
                     velocity.y = jumpMax;
                     rigid.linearVelocity = velocity;
+
+                    isJumping = true;
                     if (Input.GetAxisRaw("Horizontal") != 0)
                     {
                         spinJump = true;
@@ -121,5 +125,10 @@ public class PlayerJump : MonoBehaviour
     public bool IsSpinJumping()
     {
         return spinJump;
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
     }
 }
