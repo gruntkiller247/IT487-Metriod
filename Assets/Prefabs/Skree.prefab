@@ -87,8 +87,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1841538667362175379, guid: 53e89803ce3def642bc5db278e1966fa, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 122579120, guid: 8cbd80b6603415540bb106d47271a448, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityHealth
   hp: 2
-  invulTime: 1
+  invulTime: 0
   canDamange: 1
   testDamage: 0
 --- !u!65 &2820385081286499819
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Skree
   distanceFromPlayer: 2
-  moveSpeedDown: 1
-  moveSpeedSideways: 0.5
+  moveSpeedDown: 2.5
+  moveSpeedSideways: 1
   explodeTime: 1
   bullet: {fileID: 1558460471837614598, guid: 4c2f06866f2874041b76b8d363107f35, type: 3}
-  bulletMoveSpeed: 2
+  bulletMoveSpeed: 4

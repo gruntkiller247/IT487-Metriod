@@ -25,6 +25,8 @@ public class Skree : MonoBehaviour
 
     [SerializeField] float bulletMoveSpeed = 0.35f;
 
+    bool attack = false;
+
     void Awake()
     {
         rigid = transform.GetComponent<Rigidbody>();
@@ -49,11 +51,14 @@ public class Skree : MonoBehaviour
         Vector3 movement;
         lowView = transform.position.x - distanceFromPlayer;
         highView = transform.position.x + distanceFromPlayer;
-        
-        if(player != null && (player.transform.position.x <= highView || player.transform.position.x >= lowView ))
+
+        if ((!attack) && player != null && (player.transform.position.x <= highView && player.transform.position.x >= lowView))
         {
-            //Debug.Log("I should be allowed to move!");
-            
+            attack = true;
+
+        }
+        if (attack)
+        {
             if(!Physics.Raycast(col.bounds.center,Vector3.down,out hit,0.5f))
             {
                 movement = Vector3.down * moveSpeedDown * Time.fixedDeltaTime;
@@ -119,6 +124,17 @@ public class Skree : MonoBehaviour
         b2.transform.position = gameObject.transform.position;
         b3.transform.position = gameObject.transform.position;
         b4.transform.position = gameObject.transform.position;
+
+        b1.GetComponent<Rigidbody>().useGravity = true;
+        b2.GetComponent<Rigidbody>().useGravity = true;
+        b3.GetComponent<Rigidbody>().useGravity = true;
+        b4.GetComponent<Rigidbody>().useGravity = true;
+
+        b1.GetComponent<DestroyOnTime>().destroyTime = 0.75f;
+        b2.GetComponent<DestroyOnTime>().destroyTime = 0.75f;
+        b3.GetComponent<DestroyOnTime>().destroyTime = 0.75f;
+        b4.GetComponent<DestroyOnTime>().destroyTime = 0.75f;
+
 
         
 

@@ -303066,10 +303066,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8223911706667285066, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
-      propertyPath: bulletMoveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
