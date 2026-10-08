@@ -109,6 +109,11 @@ public class PlayerInventory : MonoBehaviour
             Destroy(other.GameObject());
             hasLongBeam = true;
         }
+        else if (other.tag == "MissileUpgrade")
+        {
+            Destroy(other.GameObject());
+            hasMissiles = true;
+        }
         else if(other.tag == "Enemy")
         {
             //Damage the self here. Let enemy deal with damage
