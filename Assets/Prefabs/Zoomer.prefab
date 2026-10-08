@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zoomer
   moveSpeed: 1
-  lookingDirection: 2
+  lookingDirection: 1
   canMove: 1
   limitFrameRate: 0
   turnCooldown: 0.5
