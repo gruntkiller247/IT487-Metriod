@@ -86,7 +86,7 @@ public class Reo : MonoBehaviour
     private void think()
     {
         RaycastHit hit;
-        if(monState == State.idle && player.transform.position.x <= highView || player.transform.position.x >= lowView )
+        if(monState == State.idle && player.transform.position.x <= highView && player.transform.position.x >= lowView )
         {
             //State change -> drop
             monState = State.drop;
@@ -101,6 +101,11 @@ public class Reo : MonoBehaviour
             //If player has jumped, state = jump
             //Otherwise keep swooping towards the player
 
+            if(Physics.Raycast(transform.position,Vector3.down,out hit, 1f))
+            {
+                
+            }
+
             if(pj.IsJumping() == true)
             {
                 monState = State.jump;
@@ -112,7 +117,7 @@ public class Reo : MonoBehaviour
         {
             //Go until collide with ceiling. State = idle. Velocity = 0
             
-            if(Physics.Raycast(transform.position,Vector3.up,out hit, lm))
+            if(Physics.Raycast(transform.position,Vector3.up,out hit, 1f))
             {
                 Debug.Log("I hit the roof!");
                 monState = State.idle;
