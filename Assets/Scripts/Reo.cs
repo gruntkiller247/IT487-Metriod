@@ -14,9 +14,11 @@ public class Reo : MonoBehaviour
 
     public float moveSpeed = 1f;
 
-    public float moveSpeedDown = 1f;
+    public float moveSpeedDown = -10f;
+    public float moveSpeedUp = 0f;
 
-    private float originalMoveSpeedDown = 1f;
+    private float originalMoveSpeedDown = 10f;
+    private float originalMoveSpeedUp = 0f;
 
     [SerializeField] int distanceFromPlayer = 2;
 
@@ -32,6 +34,7 @@ public class Reo : MonoBehaviour
 
     PlayerJump pj;
 
+    bool diveLeft = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -97,6 +100,7 @@ public class Reo : MonoBehaviour
         {
             //State change -> drop
             monState = State.drop;
+            diveLeft = (player.transform.position.x <= transform.position.x);
             
         }
         else if(monState == State.idle)
@@ -117,6 +121,7 @@ public class Reo : MonoBehaviour
             {
                 monState = State.jump;
                 moveSpeedDown = originalMoveSpeedDown;
+                moveSpeedUp = originalMoveSpeedUp;
             }
             
         }
@@ -145,17 +150,16 @@ public class Reo : MonoBehaviour
         }
 
 
-        if(transform.position.x - player.transform.position.x > 0)
+        if(!diveLeft)
         {
             //Move right
-            movement = Vector3.left * moveSpeedDown * Time.fixedDeltaTime;
+            movement = new Vector3(moveSpeed, moveSpeedDown, 0) * Time.fixedDeltaTime;
             rigid.Move(rigid.position + movement, rigid.rotation);
 
         }
         else
         {
-            //move left
-            movement = Vector3.right * moveSpeedDown * Time.fixedDeltaTime;
+            movement = new Vector3(-moveSpeed, moveSpeedDown, 0) * Time.fixedDeltaTime;
             rigid.Move(rigid.position + movement, rigid.rotation);
         }
 
@@ -167,8 +171,8 @@ public class Reo : MonoBehaviour
         rigid.Move(rigid.position + movement, rigid.rotation);
 
 
-        if(moveSpeedDown > 1)
-            moveSpeedDown--;
+        if(moveSpeedDown < -1)
+            moveSpeedDown++;
 
         //yield return null;//new WaitForSeconds(waitTime);
     }
@@ -187,8 +191,19 @@ public class Reo : MonoBehaviour
                 return ;
         }
         Debug.Log("I sjould be moving up");
-        movement = Vector3.up * moveSpeed * Time.fixedDeltaTime;
-        rigid.Move(rigid.position + movement, rigid.rotation);
+        if(!diveLeft)
+        {
+            //Move right
+            movement = new Vector3(moveSpeed, moveSpeedUp, 0) * Time.fixedDeltaTime;
+            rigid.Move(rigid.position + movement, rigid.rotation);
+
+        }
+        else
+        {
+            movement = new Vector3(-moveSpeed, moveSpeedUp, 0) * Time.fixedDeltaTime;
+            rigid.Move(rigid.position + movement, rigid.rotation);
+        }
+        moveSpeedUp++;
         //yield return null;//new WaitForSeconds(waitTime);
     }
 }
