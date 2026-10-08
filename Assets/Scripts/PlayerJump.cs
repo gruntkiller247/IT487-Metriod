@@ -9,6 +9,8 @@ public class PlayerJump : MonoBehaviour
 
     bool spinJump = false;
 
+    private bool isJumping = false;
+
     PlayerState ps;
 
     void Awake()
@@ -30,12 +32,21 @@ public class PlayerJump : MonoBehaviour
         {
             if(ps.getStanding())
             {
+                
                 //Vector3 newVelocity = rigid.linearVelocity;
                 if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
                     ps.morphBody(false);
                     spinJump = false;
                 }
+
+                if (isJumping && IsGrounded() && rigid.linearVelocity.y <= 0)
+                {
+                    ps.morphBody(false);
+                    isJumping = false;
+                }
+
+                
 
                 if (Input.GetKeyDown(KeyCode.X) && IsGrounded())
                 {
@@ -44,6 +55,8 @@ public class PlayerJump : MonoBehaviour
                     Vector3 velocity = rigid.linearVelocity;
                     velocity.y = jumpMax;
                     rigid.linearVelocity = velocity;
+
+                    isJumping = true;
                     if (Input.GetAxisRaw("Horizontal") != 0)
                     {
                         spinJump = true;
@@ -123,5 +136,10 @@ public class PlayerJump : MonoBehaviour
     public bool IsSpinJumping()
     {
         return spinJump;
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
     }
 }

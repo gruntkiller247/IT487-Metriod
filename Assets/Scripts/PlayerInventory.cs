@@ -32,7 +32,9 @@ public class PlayerInventory : MonoBehaviour
 
     private PlayerDirection pd;
 
+    float lavaTime = 0f;
 
+    [SerializeField] float lavaTick = 1f;
 
     void Awake()
     {
@@ -88,6 +90,7 @@ public class PlayerInventory : MonoBehaviour
         }
             
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
@@ -151,6 +154,15 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "LavaBlock" && Time.deltaTime >= lavaTime + lavaTick)
+        {
+            takeDamage(other);
+            lavaTime = Time.time;
+        }
+    }
+
     public bool HasMorphBall()
     {
         return hasMorphBall;
@@ -170,6 +182,11 @@ public class PlayerInventory : MonoBehaviour
             if(!thing)
             {
                 Debug.Log("Enemy does not have the damage script!");
+            }
+            else if(other.tag == "LavaBlock")
+            {
+                hp-=thing.getDamage();
+                return;
             }
             else
                 hp-=thing.getDamage();
