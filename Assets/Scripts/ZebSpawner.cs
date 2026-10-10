@@ -19,7 +19,8 @@ public class ZebSpawner : MonoBehaviour
 
         if(zeb == null)
         {
-            zeb = GameObject.FindGameObjectsWithTag("Zeb")[0];
+            //zeb = GameObject.Find("Zeb")[0];
+            Debug.LogError("Zeb Spawner does not know what to spawn!");
         }
     }
 
