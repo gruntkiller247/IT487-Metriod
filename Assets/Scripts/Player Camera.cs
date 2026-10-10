@@ -62,14 +62,16 @@ public class PlayerCamera : MonoBehaviour
         {
             if (colliderUpated == true)
             {
-                Debug.Log("Collider updated!");
+                Debug.Log("\nCollider updated!");
                 colliderUpated = false;
                 if (currentRoomCollider.bounds.extents.x < (cam.orthographicSize * cam.aspect))
                 {
+                    Debug.Log("\nCAMERA IN IF!");
                     transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
                 }
                 else
                 {
+                    Debug.Log("\nCAMERA IN ELSE!");
                     transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
                 }
 
