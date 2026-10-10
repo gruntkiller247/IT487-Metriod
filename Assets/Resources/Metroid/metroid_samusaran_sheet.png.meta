@@ -218,7 +218,7 @@ TextureImporter:
         width: 13
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -227,6 +227,50 @@ TextureImporter:
       bones: []
       spriteID: 3645e3231f544b444a0e7f0e362cb90d
       internalID: 1520698353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_samusaran_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 830
+        width: 18
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b354ffef45aca46afc47432ab655df
+      internalID: 2004399989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_samusaran_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 873
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e92c9063f853894585961012e28c94a
+      internalID: 325850152
       vertices: []
       indices: 
       edges: []
@@ -243,13 +287,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       metroid_samusaran_sheet_0: 21300000
       metroid_samusaran_sheet_1: 21300002
       metroid_samusaran_sheet_2: 21300004
       metroid_samusaran_sheet_3: 21300006
       metroid_samusaran_sheet_4: 1520698353
+      metroid_samusaran_sheet_5: 2004399989
+      metroid_samusaran_sheet_6: 325850152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,6 +16,11 @@ public class ZebSpawner : MonoBehaviour
         {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
+
+        if(zeb == null)
+        {
+            zeb = GameObject.FindGameObjectsWithTag("Zeb")[0];
+        }
     }
 
     // Update is called once per frame
