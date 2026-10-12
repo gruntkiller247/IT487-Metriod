@@ -40,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour
         if (canShoot)
         {
             
-            if((Input.GetKeyDown(KeyCode.Space)) && playerInventory.hasMissiles == true)
+            if(Input.GetKeyDown(KeyCode.Space) && playerInventory.hasMissiles == true)
             {
                 missileSelect = !missileSelect;
                 if (missileSelect) {

@@ -35,6 +35,8 @@ public class Door : MonoBehaviour
 
     private Vector3 postDoor;
 
+    static int doorCount = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -86,7 +88,11 @@ public class Door : MonoBehaviour
             //Debug.Log("Player is in position to start the door transition!");
 
             if(changingRoom == false && ps.getPlayerCanMove())
+            {
                 StartCoroutine(StartChangeRoom());
+                doorCount = 0;
+            }
+                
         }
 
     }
@@ -200,10 +206,14 @@ public class Door : MonoBehaviour
         postDoor = new Vector3(player.transform.position.x + movePlayerX,player.transform.position.y + movePlayerY,0);
         while (true)
         {
+            doorCount+=1;
             movePlayerToSpot();
             moveCameraToSpot();
-            yield return new WaitForSeconds(1 / 60);
+            yield return new WaitForSeconds(1f / 60f);
+            Debug.Log("DoorCount: " + doorCount);
+           
         }
+         
         //Change this to add the camera's movement at some point!
         
 
@@ -217,6 +227,7 @@ public class Door : MonoBehaviour
     {
         Vector3 postDoor = new Vector3(cam.transform.position.x + movePlayerX,cam.transform.position.y + movePlayerY,0);
     }
+    
 
     private void movePlayerToSpot()
     {
@@ -235,9 +246,9 @@ public class Door : MonoBehaviour
 
         //Camera cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
         //cam.transform.position += directionToMovePlayer;
-        Debug.Log("Moving player to this pos");
+        //Debug.Log("Moving player to this pos");
         player.transform.position = Vector3.MoveTowards(player.transform.position, postDoor, 0.02f);
-        
+       
         
         //pSR.sprite = tempSprite;
 

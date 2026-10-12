@@ -22,6 +22,8 @@ public class PlayerCamera : MonoBehaviour
     public bool roomBound = true;
 
     public static PlayerCamera instance;
+
+     [SerializeField] string colliderName;
     
     void Start()
     {
@@ -60,6 +62,7 @@ public class PlayerCamera : MonoBehaviour
         float camY = transform.position.y;
         if (roomBound == true)
         {
+            colliderName = currentRoomCollider.name;
             if (colliderUpated == true)
             {
                 Debug.Log("\nCollider updated!");
@@ -72,7 +75,7 @@ public class PlayerCamera : MonoBehaviour
                 else
                 {
                     Debug.Log("\nCAMERA IN ELSE!");
-                    transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
+                    transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
                 }
 
             }
