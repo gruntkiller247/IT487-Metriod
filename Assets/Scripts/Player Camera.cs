@@ -140,18 +140,32 @@ public class PlayerCamera : MonoBehaviour
                 if (canMoveVeritcal)
                 {
                     camY = playerLocation.position.y;
+                    //camY = currentRoomCollider.bounds.center.y;
+                }
+                else
+                {
+                    //Debug.Log("Camera cannot move vertically!");
                 }
 
                 if (canMove)
                 {
                     camX = playerLocation.position.x;
+                    //camX = currentRoomCollider.bounds.center.x;
+                    
                 }
+                else
+                {
+                    //Debug.Log("Camera cannot move Horizontally!");
+                }
+
+                //Debug.Log("Normal Camera Movement!\n\n");
 
                 transform.position = new Vector3(camX, camY, -10);
             }
         }
         else
         {
+            Debug.Log("Room Bound False Camera Movement!");
             transform.position = new Vector3(playerLocation.position.x, playerLocation.position.y, -10);
         }
         
