@@ -145,6 +145,7 @@ public class PlayerCamera : MonoBehaviour
                 else
                 {
                     //Debug.Log("Camera cannot move vertically!");
+                    camY = currentRoomCollider.bounds.center.y;
                 }
 
                 if (canMove)
@@ -156,6 +157,16 @@ public class PlayerCamera : MonoBehaviour
                 else
                 {
                     //Debug.Log("Camera cannot move Horizontally!");
+                    //Need to move the camera to the correct X extent either + or -
+                    if(player.transform.position.x < currentRoomCollider.bounds.center.x)
+                    {
+                        //Closer to the left
+                    }
+                    else
+                    {
+                        //Closer to the right
+
+                    }
                 }
 
                 //Debug.Log("Normal Camera Movement!\n\n");
