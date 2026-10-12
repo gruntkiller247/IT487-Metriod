@@ -36,81 +36,82 @@ public class PlayerWeapon : MonoBehaviour
     {
         //Debug.Log("Ammo: " + playerInventory.getAmmoAmount());
 
-        if((Input.GetKeyDown(KeyCode.Space)) && playerInventory.hasMissiles == true)
-        {
-            missileSelect = !missileSelect;
-            if (missileSelect) {
-                spriteRenderer.color = new Color32(255, 180, 200, 255);
-            }
-            else
-            {
-                spriteRenderer.color = Color.white;
-            }
-        }
 
         if (canShoot)
         {
-            if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))
-        {
-            GameObject bulletInstance;
-            //Can the player fire?
-            if (!missileSelect || (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
-            {
-                //instantiate missiles if missiles are selected.
-                if (missileSelect)
-                {
-                    //use up ammo if ammo cheat is not enabled
-                    if(!playerInventory.getAmmoCheat())
-                    {
-                        playerInventory.fire();
-                    }  
-                    bulletInstance = GameObject.Instantiate(missilePrefab);
-                }
-                //instantiate beam if missiles aren't selected
-                else
-                {
-                    bulletInstance = GameObject.Instantiate(bulletPrefab);
-                    //if the player has the long beam, extend the beam!
-                    if (playerInventory.hasLongBeam)
-                    {
-                        bulletInstance.GetComponent<DestroyOnTime>().destroyTime *= 2;
-                    }
-                }
             
-                //bullet position stuff. rotate the bullet too if shooting up/down etc
-                if(playerDirection.isLookingUp())
-                {
-                    bulletInstance.transform.Rotate(0, 0, 90);
-                    bulletInstance.transform.position = firingPositionUpward.position;
-                    bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.up * firingSpeed;
-                
+            if((Input.GetKeyDown(KeyCode.Space)) && playerInventory.hasMissiles == true)
+            {
+                missileSelect = !missileSelect;
+                if (missileSelect) {
+                    spriteRenderer.color = new Color32(255, 180, 200, 255);
                 }
                 else
                 {
-                    bulletInstance.transform.position = firingPositionForward.position;
-                
-                    if(playerDirection.isLookingRight())
+                    spriteRenderer.color = Color.white;
+                }
+            }
+            if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))
+            {
+                GameObject bulletInstance;
+                //Can the player fire?
+                if (!missileSelect || (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
+                {
+                    //instantiate missiles if missiles are selected.
+                    if (missileSelect)
                     {
-                        bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.right * firingSpeed;
+                        //use up ammo if ammo cheat is not enabled
+                        if(!playerInventory.getAmmoCheat())
+                        {
+                            playerInventory.fire();
+                        }  
+                        bulletInstance = GameObject.Instantiate(missilePrefab);
+                    }
+                    //instantiate beam if missiles aren't selected
+                    else
+                    {
+                        bulletInstance = GameObject.Instantiate(bulletPrefab);
+                        //if the player has the long beam, extend the beam!
+                        if (playerInventory.hasLongBeam)
+                        {
+                            bulletInstance.GetComponent<DestroyOnTime>().destroyTime *= 2;
+                        }
+                    }
+                
+                    //bullet position stuff. rotate the bullet too if shooting up/down etc
+                    if(playerDirection.isLookingUp())
+                    {
+                        bulletInstance.transform.Rotate(0, 0, 90);
+                        bulletInstance.transform.position = firingPositionUpward.position;
+                        bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.up * firingSpeed;
+                    
                     }
                     else
                     {
-                        bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.left * firingSpeed;
-                        bulletInstance.GetComponent<SpriteRenderer>().flipX = true;
-                        //Debug.Log("Shooting Left!");
-                        //Debug.Log($"Velocity is {Vector3.left * firingSpeed}");
+                        bulletInstance.transform.position = firingPositionForward.position;
+                    
+                        if(playerDirection.isLookingRight())
+                        {
+                            bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.right * firingSpeed;
+                        }
+                        else
+                        {
+                            bulletInstance.GetComponent<Rigidbody>().linearVelocity = Vector3.left * firingSpeed;
+                            bulletInstance.GetComponent<SpriteRenderer>().flipX = true;
+                            //Debug.Log("Shooting Left!");
+                            //Debug.Log($"Velocity is {Vector3.left * firingSpeed}");
+                        }
                     }
+                
+
+                    //Use this code for the Missile whenever it gets implemented!
+
                 }
+                
+                
+                
             
-
-                //Use this code for the Missile whenever it gets implemented!
-
             }
-            
-            
-            
-           
-        }
         }
         
 

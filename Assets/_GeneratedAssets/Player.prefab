@@ -470,8 +470,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2936744532908039241}
   spriteLookingForward: {fileID: 21300000, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
   spriteLookingUpward: {fileID: 21300002, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
-  invulSpriteForward: {fileID: 0}
-  invulSpriteUpward: {fileID: 0}
+  invulSpriteForward: {fileID: 325850152, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
+  invulSpriteUpward: {fileID: 2004399989, guid: ce94f51f558bd47eca28c0601d6aa21e, type: 3}
 --- !u!114 &4654261316591092314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,6 +510,7 @@ MonoBehaviour:
   ammoCheat: 0
   healthText: {fileID: 0}
   missileText: {fileID: 0}
+  lavaTick: 1
 --- !u!114 &-5307734971886488861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,3 +648,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jump: {fileID: 8300000, guid: d2dcf8b7d478e564e88d17a483c6b4bf, type: 3}
   hurt: {fileID: 8300000, guid: 7b9bf933f3d956b43a7e42f5edb594ea, type: 3}
+  getItem: {fileID: 0}
+  getItemBig: {fileID: 0}
