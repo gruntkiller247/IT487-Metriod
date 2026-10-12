@@ -17,7 +17,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool missileSelect = false;
 
-    public static bool canShoot = true;
+    private static bool canShoot = true;
 
     void Awake()
     {
@@ -115,5 +115,15 @@ public class PlayerWeapon : MonoBehaviour
         }
         
 
+    }
+
+    public void SetPlayerCanShoot(bool inVal)
+    {
+        canShoot = inVal;
+    }
+
+    public bool getPlayerCanShoot()
+    {
+        return canShoot;
     }
 }

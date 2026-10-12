@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,12 +20,14 @@ public class PlayerCamera : MonoBehaviour
 
     private bool colliderUpated = false;
 
-    public bool roomBound = true;
+    private bool roomBound = true;
 
     public static PlayerCamera instance;
 
-     [SerializeField] string colliderName;
+    [SerializeField] string colliderName;
     
+    private bool cameraLock = false;
+
     void Start()
     {
        
@@ -60,21 +63,29 @@ public class PlayerCamera : MonoBehaviour
         Transform playerLocation = player.transform;
         float camX = transform.position.x;
         float camY = transform.position.y;
+
+        if(cameraLock == true)
+        {
+            //Let the door camera controls move the camera!
+            return;
+        }
+
+
         if (roomBound == true)
         {
             colliderName = currentRoomCollider.name;
             if (colliderUpated == true)
             {
-                Debug.Log("\nCollider updated!");
+                //Debug.Log("\nCollider updated!");
                 colliderUpated = false;
                 if (currentRoomCollider.bounds.extents.x < (cam.orthographicSize * cam.aspect))
                 {
-                    Debug.Log("\nCAMERA IN IF!");
+                    //Debug.Log("\nCAMERA IN IF!");
                     transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
                 }
                 else
                 {
-                    Debug.Log("\nCAMERA IN ELSE!");
+                    //Debug.Log("\nCAMERA IN ELSE!");
                     transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
                 }
 
@@ -157,5 +168,25 @@ public class PlayerCamera : MonoBehaviour
         colliderUpated = true;
         
         //Debug.Log("The room's extents are: " + extents);
+    }
+
+    public void SetRoomBound(bool inVal)
+    {
+        roomBound = inVal;
+    }
+
+    public bool GetRoomBound()
+    {
+        return roomBound;
+    }
+
+    public void SetCameraLock(bool inVal)
+    {
+        cameraLock = inVal;
+    }
+
+    public bool GetCameraLock()
+    {
+        return cameraLock;
     }
 }
