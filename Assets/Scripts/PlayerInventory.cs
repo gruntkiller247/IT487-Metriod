@@ -13,6 +13,8 @@ public class PlayerInventory : MonoBehaviour
     public bool hasMorphBall = false;
     public bool hasLongBeam = false;
 
+    public bool hasSoccerMorph = false;
+
     public bool hasMissiles = false;
 
     [SerializeField] int hp = 3;
@@ -26,6 +28,8 @@ public class PlayerInventory : MonoBehaviour
     public bool invulCheat = false;
 
     public bool ammoCheat = false;
+
+    public bool soccerMorphed = false;
 
     public TMP_Text healthText; 
     public TMP_Text missileText; 
@@ -178,6 +182,14 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             EntityDamage thing = other.gameObject.GetComponent<EntityDamage>();
+
+            if (soccerMorphed)
+            {
+                Rigidbody rigid = GetComponent<Rigidbody>();
+                Vector3 dir = Vector3.Normalize(transform.position - thing.gameObject.transform.position);
+                rigid.AddForce(dir * 25, ForceMode.Impulse);
+                return;
+            }
 
             if(!thing)
             {

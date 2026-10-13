@@ -5,6 +5,8 @@ public class PlayerState : MonoBehaviour
     public GameObject standing;
     public GameObject morphed;
 
+    public GameObject soccerMorphed;
+
     PlayerInventory playerInventory;
     PlayerRun playerRun;
 
@@ -44,14 +46,30 @@ public class PlayerState : MonoBehaviour
             if(isStanding && playerRun.isGrounded() && isDown && playerInventory.HasMorphBall())
             {
                 standing.SetActive(false);
-                morphed.SetActive(true);
+                if (playerInventory.hasSoccerMorph)
+                {
+                    soccerMorphed.SetActive(true);
+                    playerInventory.soccerMorphed = true;
+                }
+                else
+                {
+                    morphed.SetActive(true);
+                }    
                 isStanding = false;
             }
 
             if(!isStanding && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 standing.SetActive(true);
-                morphed.SetActive(false);
+                if (playerInventory.hasSoccerMorph)
+                {
+                    soccerMorphed.SetActive(false);
+                    playerInventory.soccerMorphed = false;
+                }
+                else
+                {
+                    morphed.SetActive(false);
+                }    
                 isStanding = true;
             }
         }
@@ -74,12 +92,27 @@ public class PlayerState : MonoBehaviour
         if (morph == true)
         {
             standing.SetActive(false);
-            morphed.SetActive(true);
+            if (playerInventory.hasSoccerMorph)
+            {
+                soccerMorphed.SetActive(true);
+            }
+            else
+            {
+                morphed.SetActive(true);
+            }    
+            
         }
         else
         {
             standing.SetActive(true);
-            morphed.SetActive(false);
+            if (playerInventory.hasSoccerMorph)
+            {
+                soccerMorphed.SetActive(false);
+            }
+            else
+            {
+                morphed.SetActive(false);
+            }    
         }
     }
 
