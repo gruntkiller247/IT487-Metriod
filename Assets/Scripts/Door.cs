@@ -260,7 +260,7 @@ public class Door : MonoBehaviour
         while (elapsedTime < duration)
         {
             // Move the camera
-            cam.transform.position = Vector2.Lerp(transform.position, new Vector3(postDoor.x,postDoor.y,-10), elapsedTime / duration);
+            cam.transform.position = Vector2.Lerp(transform.position, new Vector3(postDoor.x,transform.position.y,-10), elapsedTime / duration);
             //Z axis is ignored in the above! Using Vector2
             cam.transform.position = new Vector3(cam.transform.position.x,cam.transform.position.y,-10);
             elapsedTime += Time.deltaTime;

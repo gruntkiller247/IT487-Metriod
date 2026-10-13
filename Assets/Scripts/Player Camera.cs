@@ -49,6 +49,8 @@ public class PlayerCamera : MonoBehaviour
         cam = GetComponent<Camera>();
 
         ps = player.GetComponentInParent<PlayerState>();
+
+        
         
     }
 
