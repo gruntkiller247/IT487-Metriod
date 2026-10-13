@@ -186,8 +186,8 @@ public class Reo : MonoBehaviour
         {
                 Debug.Log("I hit the roof!");
                 monState = State.idle;
-                rigid.linearVelocity = Vector3.zero;
-                rigid.angularVelocity = Vector3.zero;
+                //rigid.linearVelocity = Vector3.zero;
+                //rigid.angularVelocity = Vector3.zero;
                 return ;
         }
         Debug.Log("I sjould be moving up");
