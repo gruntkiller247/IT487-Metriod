@@ -28,6 +28,8 @@ public class PlayerCamera : MonoBehaviour
     
     private bool cameraLock = false;
 
+    float camX;
+    float camY;
     void Start()
     {
        
@@ -50,8 +52,11 @@ public class PlayerCamera : MonoBehaviour
 
         ps = player.GetComponentInParent<PlayerState>();
 
-        
-        
+        camX = transform.position.x;
+        camY = transform.position.y;
+
+
+
     }
 
     // Update is called once per frame
@@ -63,8 +68,7 @@ public class PlayerCamera : MonoBehaviour
     void LateUpdate()
     {
         Transform playerLocation = player.transform;
-        float camX = transform.position.x;
-        float camY = transform.position.y;
+        
 
         if(cameraLock == true)
         {
@@ -80,16 +84,18 @@ public class PlayerCamera : MonoBehaviour
             {
                 //Debug.Log("\nCollider updated!");
                 colliderUpated = false;
+                /*
                 if (currentRoomCollider.bounds.extents.x < (cam.orthographicSize * cam.aspect))
                 {
                     //Debug.Log("\nCAMERA IN IF!");
-                    transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
+                    //transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
                 }
                 else
                 {
                     //Debug.Log("\nCAMERA IN ELSE!");
-                    transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+                    //transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
                 }
+                */
 
             }
             else
