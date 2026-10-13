@@ -256377,8 +256377,8 @@ GameObject:
   - component: {fileID: 1417130841}
   - component: {fileID: 1417130840}
   m_Layer: 0
-  m_Name: Long Beam
-  m_TagString: LongBeam
+  m_Name: MissilePickUp
+  m_TagString: MisslePickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
