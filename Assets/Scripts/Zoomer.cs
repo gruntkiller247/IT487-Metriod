@@ -84,7 +84,7 @@ public class Zoomer : MonoBehaviour
         {
             //Something
             
-            if(hit.transform.tag == "Wall")
+            if(hit.transform.tag == "Wall" || hit.transform.tag == "Door")
             {
                 //Wall
                 //Debug.Log("Wall");
@@ -108,7 +108,7 @@ public class Zoomer : MonoBehaviour
         if(Physics.Raycast(col.bounds.center,GetForwardDirection(getFaceRight()),out hit,0.5f)) 
         {
             //Something!
-            if(hit.transform.tag == "Wall")
+            if(hit.transform.tag == "Wall" || hit.transform.tag == "Door")
             {
                 //Wall
                 downwardBlock = true;

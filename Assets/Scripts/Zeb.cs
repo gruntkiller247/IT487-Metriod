@@ -34,8 +34,19 @@ public class Zeb : MonoBehaviour
         {
             player = GameObject.FindGameObjectsWithTag("Player")[0];
         }
-        sprite.flipX = (player.transform.position.x > transform.position.x);
+
         sprite = GetComponent<SpriteRenderer>();
+
+        if(sprite == null)
+        {
+            Debug.LogError("Failed to get SpriteRenderer for Zeb!");
+        }
+
+        sprite.flipX = (player.transform.position.x > transform.position.x);
+
+
+
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

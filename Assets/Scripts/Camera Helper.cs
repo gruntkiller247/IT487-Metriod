@@ -30,8 +30,8 @@ public class CameraHelper : MonoBehaviour
     {
         if(other.tag == "Room")
         {
-            Debug.Log("Entered a new Room trigger!");
-            Debug.Log("Room name is: " + other.name);
+            //Debug.Log("Entered a new Room trigger!");
+            //Debug.Log("Room name is: " + other.name);
             playerCamera.giveRoomColliderToCamera(other);
         }
     }

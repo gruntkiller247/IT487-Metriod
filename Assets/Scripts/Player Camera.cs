@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,10 +20,14 @@ public class PlayerCamera : MonoBehaviour
 
     private bool colliderUpated = false;
 
-    public bool roomBound = true;
+    private bool roomBound = true;
 
     public static PlayerCamera instance;
+
+    [SerializeField] string colliderName;
     
+    private bool cameraLock = false;
+
     void Start()
     {
        
@@ -44,6 +49,8 @@ public class PlayerCamera : MonoBehaviour
         cam = GetComponent<Camera>();
 
         ps = player.GetComponentInParent<PlayerState>();
+
+        
         
     }
 
@@ -58,19 +65,30 @@ public class PlayerCamera : MonoBehaviour
         Transform playerLocation = player.transform;
         float camX = transform.position.x;
         float camY = transform.position.y;
+
+        if(cameraLock == true)
+        {
+            //Let the door camera controls move the camera!
+            return;
+        }
+
+
         if (roomBound == true)
         {
+            colliderName = currentRoomCollider.name;
             if (colliderUpated == true)
             {
-                Debug.Log("Collider updated!");
+                //Debug.Log("\nCollider updated!");
                 colliderUpated = false;
                 if (currentRoomCollider.bounds.extents.x < (cam.orthographicSize * cam.aspect))
                 {
+                    //Debug.Log("\nCAMERA IN IF!");
                     transform.position = new Vector3(currentRoomCollider.bounds.center.x, transform.position.y, -10);
                 }
                 else
                 {
-                    transform.position = new Vector3(player.transform.position.x, transform.position.y, -10);
+                    //Debug.Log("\nCAMERA IN ELSE!");
+                    transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
                 }
 
             }
@@ -124,18 +142,43 @@ public class PlayerCamera : MonoBehaviour
                 if (canMoveVeritcal)
                 {
                     camY = playerLocation.position.y;
+                    //camY = currentRoomCollider.bounds.center.y;
+                }
+                else
+                {
+                    //Debug.Log("Camera cannot move vertically!");
+                    camY = currentRoomCollider.bounds.center.y;
                 }
 
                 if (canMove)
                 {
                     camX = playerLocation.position.x;
+                    //camX = currentRoomCollider.bounds.center.x;
+                    
                 }
+                else
+                {
+                    //Debug.Log("Camera cannot move Horizontally!");
+                    //Need to move the camera to the correct X extent either + or -
+                    if(player.transform.position.x < currentRoomCollider.bounds.center.x)
+                    {
+                        //Closer to the left
+                    }
+                    else
+                    {
+                        //Closer to the right
+
+                    }
+                }
+
+                //Debug.Log("Normal Camera Movement!\n\n");
 
                 transform.position = new Vector3(camX, camY, -10);
             }
         }
         else
         {
+            Debug.Log("Room Bound False Camera Movement!");
             transform.position = new Vector3(playerLocation.position.x, playerLocation.position.y, -10);
         }
         
@@ -152,5 +195,25 @@ public class PlayerCamera : MonoBehaviour
         colliderUpated = true;
         
         //Debug.Log("The room's extents are: " + extents);
+    }
+
+    public void SetRoomBound(bool inVal)
+    {
+        roomBound = inVal;
+    }
+
+    public bool GetRoomBound()
+    {
+        return roomBound;
+    }
+
+    public void SetCameraLock(bool inVal)
+    {
+        cameraLock = inVal;
+    }
+
+    public bool GetCameraLock()
+    {
+        return cameraLock;
     }
 }

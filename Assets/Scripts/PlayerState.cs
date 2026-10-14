@@ -58,7 +58,7 @@ public class PlayerState : MonoBehaviour
                 isStanding = false;
             }
 
-            if(!isStanding && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
+            if(!isStanding && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (Physics.Raycast(transform.position, Vector3.up, 1f) == false))
             {
                 standing.SetActive(true);
                 if (playerInventory.hasSoccerMorph)
