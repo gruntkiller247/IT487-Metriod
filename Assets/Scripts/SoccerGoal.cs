@@ -18,10 +18,14 @@ public class SoccerGoal : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<SoccerMorph>())
+        if (collision.gameObject.GetComponentInChildren<SoccerMorph>())
         {
             Debug.Log("Collided with soccer morph");
-            Destroy(this);
+            if (collision.gameObject.GetComponentInChildren<SoccerMorph>().morphHitTimer > 0)
+            {
+                Destroy(this.gameObject);
+            }
+            
         }
     }
 }
