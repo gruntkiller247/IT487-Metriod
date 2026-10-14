@@ -38,6 +38,8 @@ public class PlayerInventory : MonoBehaviour
 
     float lavaTime = 0f;
 
+    [SerializeField] SpriteRenderer soccerRender;
+
     [SerializeField] float lavaTick = 1f;
 
     void Awake()
@@ -188,6 +190,8 @@ public class PlayerInventory : MonoBehaviour
                 Rigidbody rigid = GetComponent<Rigidbody>();
                 Vector3 dir = Vector3.Normalize(transform.position - thing.gameObject.transform.position);
                 rigid.AddForce(dir * 25, ForceMode.Impulse);
+                GetComponentInChildren<SoccerMorph>().morphHitTimer = 60;
+                soccerRender.color = Color.pink;
                 return;
             }
 

@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 7215399805308492397}
   - component: {fileID: 3781388045664339293}
   - component: {fileID: 7355387344181542348}
+  - component: {fileID: 1947581878034510078}
   m_Layer: 0
   m_Name: SoccerMorph
   m_TagString: Player
@@ -337,6 +338,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassUpTriggerEnterToInvetory
   hasMorphBall: 0
+--- !u!114 &1947581878034510078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778461626548263358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf47db86dd1ec2e4e96032aaed5399ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  morphHitTimer: 0
 --- !u!1 &6424470951881308893
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +669,7 @@ MonoBehaviour:
   soccerMorphed: 0
   healthText: {fileID: 0}
   missileText: {fileID: 0}
+  soccerRender: {fileID: 3192883901920644515}
   lavaTick: 1
 --- !u!114 &-5307734971886488861
 MonoBehaviour:
@@ -793,5 +808,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jump: {fileID: 8300000, guid: d2dcf8b7d478e564e88d17a483c6b4bf, type: 3}
   hurt: {fileID: 8300000, guid: 7b9bf933f3d956b43a7e42f5edb594ea, type: 3}
-  getItem: {fileID: 0}
-  getItemBig: {fileID: 0}
+  getItem: {fileID: 8300000, guid: 76a4c711a1626664e8fa838b5b5503f8, type: 3}
+  getItemBig: {fileID: 8300000, guid: 513a44834d49c074d878da78dcc26939, type: 3}
