@@ -81,7 +81,8 @@ public class PlayerCamera : MonoBehaviour
     void LateUpdate()
     {
         Transform playerLocation = player.transform;
-        
+        float cameraHalfHeight = cam.orthographicSize;
+        float cameraHalfWidth = cam.orthographicSize * cam.aspect;
 
         if(cameraLock == true)
         {
@@ -97,14 +98,48 @@ public class PlayerCamera : MonoBehaviour
         }
         else if(colliderUpated == true)
         {
-            camX = currentRoomCollider.bounds.min.x;    //Works somewhat. Need to add directional info
+            if(player.transform.position.x < currentRoomCollider.bounds.center.x)
+            {
+                //Samus is on the left side of the room!
+                //Nudge the camera right!
+
+                //Need to check if the camera is sized for the room
+                
+
+                if(currentRoomCollider.bounds.min.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x - cameraHalfWidth)
+                {
+                    //Room is too small for the camera. Let the code below deal with it!
+                }
+                else
+                {
+                    //Need to nudge the camera to the right a bit!
+                    camX = currentRoomCollider.bounds.min.x + cameraHalfWidth;
+                }
+            }
+            else
+            {
+                //Samus must be on the right side of the room!
+                //Nudge the camera left!
+
+                if(currentRoomCollider.bounds.min.x + cameraHalfWidth >= currentRoomCollider.bounds.max.x - cameraHalfWidth)
+                {
+                    //Room is too small for the camera. Let the code below deal with it!
+                }
+                else
+                {
+                    //Nudge left
+                    camX = currentRoomCollider.bounds.max.x - cameraHalfWidth;
+                }
+            }
+            //camX = currentRoomCollider.bounds.min.x;    
+
             camY = player.transform.position.y;
             colliderUpated = false;
         }
         else
         {
             //Need to move the camera with the player unless they are near the edge of the room horizontally or vertically
-            float cameraHalfWidth = cam.orthographicSize * cam.aspect;
+            
             colliderName = currentRoomCollider.name; //Debug info
 
 
@@ -123,7 +158,7 @@ public class PlayerCamera : MonoBehaviour
                 canMove = true;
             }
 
-            float cameraHalfHeight = cam.orthographicSize;
+            
 
             if (player.transform.position.y + cameraHalfHeight >= currentRoomCollider.bounds.max.y)
             {
