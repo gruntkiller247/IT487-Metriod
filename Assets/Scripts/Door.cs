@@ -45,6 +45,10 @@ public class Door : MonoBehaviour
     private Rigidbody playerRigid;
 
     private SpriteRenderer playerSR;
+
+
+    [SerializeField] bool doorNeedKey = false; //Set this to true if the door needs a key 
+    [SerializeField] bool doorHasKey = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -186,22 +190,31 @@ public class Door : MonoBehaviour
 
         if(other.gameObject.tag == "PlayerWeapon")
         {
-            //Change the state to open door
-            //Do this with a coroutine for some amount of time
-            //Debug.Log("Player Bullet!");
-            if (isMissileDoor)
+            if(doorNeedKey == false || doorHasKey == true)
             {
-                if (other.gameObject.GetComponent<Missile>())
+                if (isMissileDoor)
+                {
+                    if (other.gameObject.GetComponent<Missile>())
+                    {
+                        startDoorOpen();
+                    }
+                    Destroy(other.gameObject);
+                }
+                else
                 {
                     startDoorOpen();
+                    Destroy(other.gameObject);
                 }
-                Destroy(other.gameObject);
             }
             else
             {
-                startDoorOpen();
-                Destroy(other.gameObject);
+                Debug.Log("The door is locked, it cannot open!");
             }
+
+            //Change the state to open door
+            //Do this with a coroutine for some amount of time
+            //Debug.Log("Player Bullet!");
+
             
             
         }
@@ -222,6 +235,9 @@ public class Door : MonoBehaviour
         RaycastHit hit;
 
         //Debug.Log("In doorOpen");
+
+
+
         doorOpen = true;
         solidCol.enabled = false;
 

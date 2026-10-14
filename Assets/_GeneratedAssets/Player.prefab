@@ -14,13 +14,14 @@ GameObject:
   - component: {fileID: 7746071668660002156}
   - component: {fileID: 836043799952275859}
   - component: {fileID: 5591881713172313647}
+  - component: {fileID: 1685603171292427802}
   m_Layer: 8
   m_Name: Standing
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8137113276498785457
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +166,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassUpTriggerEnterToInvetory
   hasMorphBall: 0
+--- !u!114 &1685603171292427802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500213648100871386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d147d6e599b38d84f954b1b1d3dd4106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewStuffTeleport
 --- !u!1 &3486309116353307752
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,14 +222,13 @@ GameObject:
   - component: {fileID: 7215399805308492397}
   - component: {fileID: 3781388045664339293}
   - component: {fileID: 7355387344181542348}
-  - component: {fileID: 1947581878034510078}
   m_Layer: 0
   m_Name: SoccerMorph
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4686935741257496980
 Transform:
   m_ObjectHideFlags: 0
@@ -338,19 +350,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassUpTriggerEnterToInvetory
   hasMorphBall: 0
---- !u!114 &1947581878034510078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3778461626548263358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf47db86dd1ec2e4e96032aaed5399ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  morphHitTimer: 0
 --- !u!1 &6424470951881308893
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +540,7 @@ GameObject:
   - component: {fileID: 8846221667475093651}
   - component: {fileID: 4666398033561334713}
   - component: {fileID: 5792264334684255952}
+  - component: {fileID: 5978063648797836426}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -669,7 +669,6 @@ MonoBehaviour:
   soccerMorphed: 0
   healthText: {fileID: 0}
   missileText: {fileID: 0}
-  soccerRender: {fileID: 3192883901920644515}
   lavaTick: 1
 --- !u!114 &-5307734971886488861
 MonoBehaviour:
@@ -808,5 +807,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jump: {fileID: 8300000, guid: d2dcf8b7d478e564e88d17a483c6b4bf, type: 3}
   hurt: {fileID: 8300000, guid: 7b9bf933f3d956b43a7e42f5edb594ea, type: 3}
-  getItem: {fileID: 8300000, guid: 76a4c711a1626664e8fa838b5b5503f8, type: 3}
-  getItemBig: {fileID: 8300000, guid: 513a44834d49c074d878da78dcc26939, type: 3}
+  getItem: {fileID: 0}
+  getItemBig: {fileID: 0}
+--- !u!114 &5978063648797836426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575969477524420703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d147d6e599b38d84f954b1b1d3dd4106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewStuffTeleport

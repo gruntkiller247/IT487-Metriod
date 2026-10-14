@@ -34,7 +34,8 @@ public class ZebSpawner : MonoBehaviour
         else if (Mathf.Abs(player.transform.position.x - transform.position.x) <= distance)
         {
             spawnTimer = spawnTimerMax;
-            Instantiate(zeb);
+            GameObject zebInstance = Instantiate(zeb);
+            zebInstance.transform.position = transform.position;
         }
     }
 }
