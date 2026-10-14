@@ -374172,7 +374172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6357812950910661683, guid: d45c90a7970816a4b806edcec241367d, type: 3}
       propertyPath: m_Name
-      value: Long Beam
+      value: Missiles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
