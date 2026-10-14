@@ -12,12 +12,14 @@ public class PlayerJump : MonoBehaviour
     private bool isJumping = false;
 
     PlayerState ps;
+    PlayerInventory pi;
 
     void Awake()
     {
         rigid = transform.GetComponentInParent<Rigidbody>();
         col = transform.GetComponent<Collider>();
         ps = transform.GetComponentInParent<PlayerState>();
+        pi = transform.GetComponentInParent<PlayerInventory>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,19 +32,19 @@ public class PlayerJump : MonoBehaviour
     {
         if(ps.getPlayerCanMove() == true)
         {
-            if(ps.getStanding())
+            if(ps.getStanding() || pi.hasSoccerMorph)
             {
                 
                 //Vector3 newVelocity = rigid.linearVelocity;
                 if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
-                    ps.morphBody(false);
+                    //ps.morphBody(false);
                     spinJump = false;
                 }
 
                 if (isJumping && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
-                    ps.morphBody(false);
+                    //ps.morphBody(false);
                     isJumping = false;
                 }
 

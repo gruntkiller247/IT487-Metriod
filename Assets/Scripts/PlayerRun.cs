@@ -54,7 +54,8 @@ public class PlayerRun : MonoBehaviour
                 //Check if the player is spinjumping. If they are, they should maintain horizontal momentum even if nothing is held, so we won't apply friction.
                 //If the player isn't spinjumping, they should slow down or stop when holding neutral.
                 bool isSpinJumping = GetComponentInChildren<PlayerJump>().IsSpinJumping();
-                if (!isSpinJumping)
+                bool isSoccerMorphed = GetComponent<PlayerInventory>().soccerMorphed;
+                if (!isSpinJumping & !isSoccerMorphed)
                 {
                     newVelocity.x -= Mathf.Sign(newVelocity.x) * moveFriction;
                     //If close to zero, just set it to zero.
