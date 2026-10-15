@@ -7,4 +7,10 @@
 	The new mechanic of Samus as a soccer ball will be demonstrated when the player enters the room. There is a new pickup with a soccer ball icon, and when the player morphs, Samus's morph ball appears as a soccer ball.
 	There is also an impassable green barrier. Getting hit by an enemy while in soccer morph form turns Samus green. Thus, the player may try to touch the barrier while green, which scores a goal and lets Samus proceed.
 
-	//Insert URLs here where we posted the game
+	Press 4 to enter the new area, but make sure you get the morph ball first.
+	There are two more extra areas along the 2 tall vertical shafts!
+
+
+	Our URLs are:
+	https://querymarks.itch.io/it487-metroid-gold
+	https://mje3.itch.io/it487-metroid-gold
