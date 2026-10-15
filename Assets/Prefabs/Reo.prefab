@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 1
-  moveSpeedDown: 10
+  moveSpeedDown: 12
   moveSpeedUp: 0
   distanceFromPlayer: 2
   monState: 0

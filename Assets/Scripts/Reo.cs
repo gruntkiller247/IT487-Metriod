@@ -17,7 +17,7 @@ public class Reo : MonoBehaviour
     public float moveSpeedDown = 10f;
     public float moveSpeedUp = 0f;
 
-    private float originalMoveSpeedDown = 10f;
+    private float originalMoveSpeedDown = 12f;
     private float originalMoveSpeedUp = 0f;
 
     [SerializeField] int distanceFromPlayer = 2;
@@ -54,7 +54,7 @@ public class Reo : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
                 
         lowView = transform.position.x - distanceFromPlayer;
@@ -179,7 +179,7 @@ public class Reo : MonoBehaviour
 
         if(moveSpeedDown > 0f)
         {
-            moveSpeedDown -= 0.1f;
+            moveSpeedDown *= 0.975f;
         }
 
 
@@ -222,7 +222,7 @@ public class Reo : MonoBehaviour
             movement.x = 0;
         }
         rigid.Move(rigid.position + movement, rigid.rotation);
-        moveSpeedUp += 0.1f;
+        moveSpeedUp += 0.2f;
         //yield return null;//new WaitForSeconds(waitTime);
     }
 }

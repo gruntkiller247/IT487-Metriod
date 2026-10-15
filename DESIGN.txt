@@ -1,9 +1,10 @@
-	We wanted to create small rooms where the player was used as a soccer ball. The player will be able to use Samus' ball form and become the ball for 1-2 enemies who try to score a goal.
+	We wanted to create small rooms where the player was used as a soccer ball. The player will be able to use Samus' ball form and become the ball for enemies. She can collide with green barriers after being hit to "score" and disable the barrier.
 
-	The custome mechanic is the ablitity for enemies to hit and kick Samus while she is in ball mode within certain rooms. They would apply a force and push Samus in addition to the player's standard movement.
+	The custom mechanic is the ablity for enemies to hit and kick Samus while she is in ball mode within certain rooms. They apply a force and push Samus in addition to the player's standard movement.
 
-	The new mechanic offers a fun minigame for the player to play. The mechanic also offers a reward to the player in a powerup if they are able to score.
+	The new mechanic offers a fun minigame for the player to play. The mechanic also offers a reward to the player: after each set of challenges, the player can obtain a lot of health and ammo.
 
-	The new mechanic of Samus as a soccerball will be demonstrated when the player enters with their weapons being unusable, a goal being presented, and the player changing color to match a soccer ball.
+	The new mechanic of Samus as a soccer ball will be demonstrated when the player enters the room. There is a new pickup with a soccer ball icon, and when the player morphs, Samus's morph ball appears as a soccer ball.
+	There is also an impassable green barrier. Getting hit by an enemy while in soccer morph form turns Samus green. Thus, the player may try to touch the barrier while green, which scores a goal and lets Samus proceed.
 
 	//Insert URLs here where we posted the game
