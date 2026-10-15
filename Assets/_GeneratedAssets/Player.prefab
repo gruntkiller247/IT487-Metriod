@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
-  moveAccel: 1
+  moveAccel: 0.5
   moveFriction: 1
   jumpPower: 10
 --- !u!114 &2964988505357570281
@@ -660,8 +660,8 @@ MonoBehaviour:
   hasLongBeam: 0
   hasSoccerMorph: 0
   hasMissiles: 0
-  hp: 3
-  ammo: 50
+  hp: 30
+  ammo: 0
   canDamange: 1
   testDamage: 0
   invulCheat: 0
@@ -669,6 +669,7 @@ MonoBehaviour:
   soccerMorphed: 0
   healthText: {fileID: 0}
   missileText: {fileID: 0}
+  soccerRender: {fileID: 3192883901920644515}
   lavaTick: 1
 --- !u!114 &-5307734971886488861
 MonoBehaviour:
@@ -807,8 +808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   jump: {fileID: 8300000, guid: d2dcf8b7d478e564e88d17a483c6b4bf, type: 3}
   hurt: {fileID: 8300000, guid: 7b9bf933f3d956b43a7e42f5edb594ea, type: 3}
-  getItem: {fileID: 0}
-  getItemBig: {fileID: 0}
+  getItem: {fileID: 8300000, guid: 76a4c711a1626664e8fa838b5b5503f8, type: 3}
+  getItemBig: {fileID: 8300000, guid: 513a44834d49c074d878da78dcc26939, type: 3}
 --- !u!114 &5978063648797836426
 MonoBehaviour:
   m_ObjectHideFlags: 0
