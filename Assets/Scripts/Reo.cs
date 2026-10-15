@@ -14,7 +14,7 @@ public class Reo : MonoBehaviour
 
     public float moveSpeed = 1f;
 
-    public float moveSpeedDown = -10f;
+    public float moveSpeedDown = 10f;
     public float moveSpeedUp = 0f;
 
     private float originalMoveSpeedDown = 10f;
@@ -99,7 +99,9 @@ public class Reo : MonoBehaviour
         if(monState == State.idle && player.transform.position.x <= highView && player.transform.position.x >= lowView )
         {
             //State change -> drop
+            moveSpeedDown = originalMoveSpeedDown;
             monState = State.drop;
+
             diveLeft = (player.transform.position.x <= transform.position.x);
             
         }
@@ -120,7 +122,6 @@ public class Reo : MonoBehaviour
             if(pj.IsJumping() == true)
             {
                 monState = State.jump;
-                moveSpeedDown = originalMoveSpeedDown;
                 moveSpeedUp = originalMoveSpeedUp;
             }
             
@@ -140,39 +141,47 @@ public class Reo : MonoBehaviour
         Vector3 movement;
         RaycastHit hit;
 
-        if(Physics.Raycast(transform.position,Vector3.down,out hit, 1f))
+        if(Physics.Raycast(transform.position,Vector3.down,out hit, 0.1f))
         {
-                Debug.Log("I hit the floor!");
-                monState = State.wander;
-                rigid.linearVelocity = Vector3.zero;
-                rigid.angularVelocity = Vector3.zero;
-                return ;
+            Debug.Log("I hit the floor!");
+            moveSpeedDown = 0;
         }
 
 
         if(!diveLeft)
         {
             //Move right
-            movement = new Vector3(moveSpeed, moveSpeedDown, 0) * Time.fixedDeltaTime;
-            rigid.Move(rigid.position + movement, rigid.rotation);
+            movement = new Vector3(moveSpeed, -moveSpeedDown, 0) * Time.fixedDeltaTime;
 
         }
         else
         {
-            movement = new Vector3(-moveSpeed, moveSpeedDown, 0) * Time.fixedDeltaTime;
-            rigid.Move(rigid.position + movement, rigid.rotation);
+            movement = new Vector3(-moveSpeed, -moveSpeedDown, 0) * Time.fixedDeltaTime;
+            
         }
-
         
-
-
-
-        movement = Vector3.down * moveSpeedDown * Time.fixedDeltaTime;
+        if(Physics.Raycast(transform.position,Vector3.left,out hit, 1f))
+        {
+            Debug.Log("I hit the wall!");
+            movement.x = 0;
+        }
+        else if(Physics.Raycast(transform.position,Vector3.right,out hit, 1f))
+        {
+            Debug.Log("I hit the wall!");
+            movement.x = 0;
+        }
         rigid.Move(rigid.position + movement, rigid.rotation);
 
 
-        if(moveSpeedDown < -1)
-            moveSpeedDown++;
+
+
+
+
+        if(moveSpeedDown > 0f)
+        {
+            moveSpeedDown -= 0.1f;
+        }
+
 
         //yield return null;//new WaitForSeconds(waitTime);
     }
@@ -195,15 +204,25 @@ public class Reo : MonoBehaviour
         {
             //Move right
             movement = new Vector3(moveSpeed, moveSpeedUp, 0) * Time.fixedDeltaTime;
-            rigid.Move(rigid.position + movement, rigid.rotation);
+            
 
         }
         else
         {
             movement = new Vector3(-moveSpeed, moveSpeedUp, 0) * Time.fixedDeltaTime;
-            rigid.Move(rigid.position + movement, rigid.rotation);
         }
-        moveSpeedUp++;
+        if(Physics.Raycast(transform.position,Vector3.left,out hit, 1f))
+        {
+            Debug.Log("I hit the wall!");
+            movement.x = 0;
+        }
+        else if(Physics.Raycast(transform.position,Vector3.right,out hit, 1f))
+        {
+            Debug.Log("I hit the wall!");
+            movement.x = 0;
+        }
+        rigid.Move(rigid.position + movement, rigid.rotation);
+        moveSpeedUp += 0.1f;
         //yield return null;//new WaitForSeconds(waitTime);
     }
 }

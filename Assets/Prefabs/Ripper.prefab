@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntityHealth
   hp: 2
   invulTime: 0
-  canDamange: 1
+  canDamange: 0
   testDamage: 0
 --- !u!65 &2820385081286499819
 BoxCollider:

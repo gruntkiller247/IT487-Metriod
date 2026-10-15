@@ -232,7 +232,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,6 +241,28 @@ TextureImporter:
       bones: []
       spriteID: d62e1a8b4ccf2a3408a9084ec4284eae
       internalID: 2025268889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: metroid_enemies_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 283
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d9a283b1ad81540854ea8917a57c84
+      internalID: -1186271193
       vertices: []
       indices: 
       edges: []
@@ -266,6 +288,7 @@ TextureImporter:
       metroid_enemies_sheet_2: 1484891767
       metroid_enemies_sheet_3: -1433877578
       metroid_enemies_sheet_4: 2025268889
+      metroid_enemies_sheet_5: -1186271193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

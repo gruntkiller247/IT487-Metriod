@@ -9,12 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4691577438649960574, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1186271193, guid: 8cbd80b6603415540bb106d47271a448, type: 3}
+    - target: {fileID: 4691577438649960574, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_Color.b
-      value: 0.9919772
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691577438649960574, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691577438649960574, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_Color.r
@@ -62,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_Name
-      value: Reo Variant
+      value: Reo
       objectReference: {fileID: 0}
     - target: {fileID: 7642561208385049596, guid: c80058962f5a03b4d93f464a1fdd3fee, type: 3}
       propertyPath: m_IsActive
@@ -99,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   moveSpeed: 1
-  moveSpeedUp: 1
+  moveSpeedDown: 10
+  moveSpeedUp: 0
   distanceFromPlayer: 2
   monState: 0
