@@ -129,6 +129,13 @@ public class PlayerInventory : MonoBehaviour
             hasMissiles = true;
             
             PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
+        }        
+        else if (other.tag == "SoccerUpgrade")
+        {
+            Destroy(other.GameObject());
+            hasMissiles = true;
+            
+            PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
         }
         else if(other.tag == "Enemy")
         {

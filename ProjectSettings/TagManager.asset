@@ -17,6 +17,7 @@ TagManager:
   - Room
   - Door
   - The Player
+  - MissileUpgrade
   layers:
   - Default
   - TransparentFX
