@@ -18,6 +18,7 @@ TagManager:
   - Door
   - The Player
   - MissileUpgrade
+  - SoccerUpgrade
   layers:
   - Default
   - TransparentFX

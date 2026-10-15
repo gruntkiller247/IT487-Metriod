@@ -133,7 +133,7 @@ public class PlayerInventory : MonoBehaviour
         else if (other.tag == "SoccerUpgrade")
         {
             Destroy(other.GameObject());
-            hasMissiles = true;
+            hasSoccerMorph = true;
             
             PlayerSound.instance.PlaySound(PlayerSound.instance.getItemBig);
         }
@@ -198,7 +198,7 @@ public class PlayerInventory : MonoBehaviour
                 Vector3 dir = Vector3.Normalize(transform.position - thing.gameObject.transform.position);
                 rigid.AddForce(dir * 25, ForceMode.Impulse);
                 GetComponentInChildren<SoccerMorph>().morphHitTimer = 60;
-                soccerRender.color = Color.pink;
+                soccerRender.color = Color.green;
                 return;
             }
 

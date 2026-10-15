@@ -14,12 +14,20 @@ public class PlayerJump : MonoBehaviour
     PlayerState ps;
     PlayerInventory pi;
 
+
+    [SerializeField] bool isStandingGameObject = false;
+    [SerializeField] Sprite standSprite;
+    [SerializeField] Sprite lookUpSprite;
+    [SerializeField] Sprite spinJumpSprite;
+    [SerializeField] SpriteRenderer mySprite;
+    [SerializeField] PlayerDirection pd;
     void Awake()
     {
         rigid = transform.GetComponentInParent<Rigidbody>();
         col = transform.GetComponent<Collider>();
         ps = transform.GetComponentInParent<PlayerState>();
         pi = transform.GetComponentInParent<PlayerInventory>();
+        pd = transform.GetComponentInParent<PlayerDirection>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +46,10 @@ public class PlayerJump : MonoBehaviour
                 //Vector3 newVelocity = rigid.linearVelocity;
                 if (spinJump && IsGrounded() && rigid.linearVelocity.y <= 0)
                 {
+                    if (isStandingGameObject)
+                    {
+                        mySprite.sprite = standSprite;
+                    }
                     //ps.morphBody(false);
                     spinJump = false;
                 }
@@ -62,6 +74,11 @@ public class PlayerJump : MonoBehaviour
                     if (Input.GetAxisRaw("Horizontal") != 0)
                     {
                         spinJump = true;
+                        if (isStandingGameObject)
+                        {
+                            mySprite.sprite = spinJumpSprite;
+                            Debug.Log("SETTING SPIN JUMP");
+                        }
                         //The below doesn't work because of how these weird child objects are set up. I will be controlling this through animations in the future. -Ethelyn
                         //ps.morphBody(true);
                     }
@@ -143,5 +160,18 @@ public class PlayerJump : MonoBehaviour
     public bool IsJumping()
     {
         return isJumping;
+    }
+
+    public void StopSpinjump()
+    {
+        spinJump = false;
+        if (pd.lookingUp)
+        {
+            mySprite.sprite = lookUpSprite;
+        }
+        else
+        {
+            mySprite.sprite = standSprite;
+        }
     }
 }

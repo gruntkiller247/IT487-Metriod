@@ -18,6 +18,7 @@ public class PlayerWeapon : MonoBehaviour
     public bool missileSelect = false;
 
     private static bool canShoot = true;
+    [SerializeField] PlayerJump playerJump;
 
     void Awake()
     {
@@ -53,10 +54,12 @@ public class PlayerWeapon : MonoBehaviour
             }
             if((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Slash)))
             {
+
                 GameObject bulletInstance;
                 //Can the player fire?
                 if (!missileSelect || (playerInventory.getAmmoCheat() || playerInventory.getAmmoAmount() > 0))
                 {
+                    playerJump.StopSpinjump();
                     //instantiate missiles if missiles are selected.
                     if (missileSelect)
                     {
@@ -66,6 +69,7 @@ public class PlayerWeapon : MonoBehaviour
                             playerInventory.fire();
                         }  
                         bulletInstance = GameObject.Instantiate(missilePrefab);
+                        
                     }
                     //instantiate beam if missiles aren't selected
                     else

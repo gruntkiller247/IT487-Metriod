@@ -15,6 +15,7 @@ public class PlayerDirection : MonoBehaviour
     public Sprite invulSpriteForward;
     public Sprite invulSpriteUpward;
     private bool defaultSprite = true;
+    public PlayerJump playerJump;
 
     PlayerState ps;
     void Awake()
@@ -60,27 +61,30 @@ public class PlayerDirection : MonoBehaviour
             {
                 holdingUp = false;
             }
-
-            if(lookingUp && !holdingUp)
+            if (!playerJump.IsSpinJumping())
             {
-                lookingUp = false;
+                if(lookingUp && !holdingUp)
+                {
+                    lookingUp = false;
                 
-                if(defaultSprite)
-                    spriteRenderer.sprite = spriteLookingForward;
-                else
-                    spriteRenderer.sprite = invulSpriteForward;
+                    if(defaultSprite)
+                        spriteRenderer.sprite = spriteLookingForward;
+                    else
+                        spriteRenderer.sprite = invulSpriteForward;
 
                 
-            }
-            else if(!lookingUp && holdingUp)
-            {
-                lookingUp = true;
+                }
+                else if(!lookingUp && holdingUp)
+                {
+                    lookingUp = true;
                 
-                if(defaultSprite)
-                    spriteRenderer.sprite = spriteLookingUpward;
-                else
-                    spriteRenderer.sprite = invulSpriteUpward;
+                    if(defaultSprite)
+                        spriteRenderer.sprite = spriteLookingUpward;
+                    else
+                        spriteRenderer.sprite = invulSpriteUpward;
+                }
             }
+            
         }
 
         
